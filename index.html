@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-WLLMWR25');</script>
+	<!-- End Google Tag Manager -->
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FRACTAL MEDICAL FITNESS LP Preview</title>
+
+    <!-- google-font読込み -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Noto+Sans+JP:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Shippori+Mincho&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://use.typekit.net/moa2hxx.css" />
+    <!-- CSS読込み -->
+    <link rel="stylesheet" href="style.css"/>
+
+	<style>
+      .concept {
+            background: url('lp-medical-fitness/img/hero-medical-fitness.png') no-repeat top -100px center/cover;
+          }
+        @media screen and (min-width: 768px) {
+          .concept {
+            background: url('lp-medical-fitness/img/hero-medical-fitness.png') no-repeat center center/cover;
+          }
+        }
+
+      .problem {
+          background: url('lp-medical-fitness/img/consultation-assessment.png') no-repeat top left/cover;
+        }
+        @media screen and (min-width: 1600px) {
+          .problem {
+            background: url('lp-medical-fitness/img/consultation-assessment.png') no-repeat top -30px left/cover;
+          }
+        }
+
+      .about {
+          background: url('lp-medical-fitness/img/consultation-assessment.png') no-repeat top left/cover;
+        }
+
+      .about__inner::before {
+        background: url('https://fractal-workout.com/wp-content/uploads/2025/09/about_logo.webp') no-repeat top left/57vw auto;
+      }
+      @media screen and (min-width: 768px) {
+        .about__inner::before {
+          background: url('https://fractal-workout.com/wp-content/uploads/2025/09/about_logo.webp') no-repeat top left / min(36vw, 600px) auto;
+        }
+      }
+
+
+      .feature__heading {
+            background: url('lp-medical-fitness/img/supervised-exercise.png') no-repeat center center/cover ;
+          }
+        @media screen and (min-width: 768px) {
+          .feature__heading {
+            background: url('lp-medical-fitness/img/supervised-exercise.png') no-repeat center center/cover ;
+          }
+        }
+
+      .program {
+          background: url('lp-medical-fitness/img/consultation-assessment.png') no-repeat center center/cover;
+        }
+
+      .program::before {
+          background: url('lp-medical-fitness/img/consultation-assessment.png') no-repeat top center/100%
+            auto;
+        }
+        @media screen and (min-width: 768px) {
+          .program::before {
+            background: url('lp-medical-fitness/img/consultation-assessment.png') no-repeat top center/100%
+              auto;
+
+          }
+        }
+
+      .vision__wrap {
+        background: url('lp-medical-fitness/img/consultation-assessment.png') no-repeat center center/cover;
+        }
+
+      .cta {
+            background: url('lp-medical-fitness/img/hero-medical-fitness.png') no-repeat center center/cover ;
+          }
+        @media screen and (min-width: 768px) {
+          .cta {
+            background: url('lp-medical-fitness/img/hero-medical-fitness.png') no-repeat center center/cover ;
+          }
+        }
+
+      .footer__message {
+          background: url('lp-medical-fitness/img/consultation-assessment.png') no-repeat top left/cover;
+        }
+    </style>
+  </head>
+
+  <body>
+	 <!-- Google Tag Manager (noscript) -->
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WLLMWR25"
+	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<!-- End Google Tag Manager (noscript) -->
+
+    <header class="header">
+      <div class="header__inner l-inner">
+        <h1 class="header__logo">
+          <a href="#"
+            ><img src="https://fractal-workout.com/wp-content/uploads/2025/09/logo.webp" alt="ロゴ：FRACTAL WORKOUT"
+          /></a>
+        </h1>
+        <button
+          type="button"
+          id="js-drawer-icon"
+          class="header__open drawer-icon"
+        >
+          <span class="drawer-icon__bar"></span>
+          <span class="drawer-icon__bar"></span>
+        </button>
+
+        <nav class="header__nav" id="js-drawer-open">
+          <ul class="header__lists">
+            <li class="header__list">
+              <a href="#feature" class="header__link">選ばれる理由</a>
+            </li>
+            <li class="header__list">
+              <a href="#program" class="header__link">プログラム</a>
+            </li>
+            <li class="header__list">
+              <a href="#deduction" class="header__link">医療費控除</a>
+            </li>
+            <li class="header__list-button">
+              <a
+                href="https://fractal-workout.com/lp/contact/"
+                class="c-button c-button02"
+                ><span class="md-hidden">健康チェック付き体験相談を予約する</span
+                ><span class="md-visible">体験相談</span></a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- fv -->
+      <div class="fv fv--image-hero">
+        <div class="fv__hero-frame">
+          <picture class="fv__hero-picture">
+            <source
+              srcset="lp-medical-fitness/img/fv-checkup-habit.png"
+              media="(min-width: 768px)"
+            />
+            <img
+              src="lp-medical-fitness/img/fv-checkup-habit.png"
+              alt="MEDICAL FITNESS 健診結果を、これからの習慣に変える。医療的な視点と専門スタッフの運動指導で、無理なく続くメディカルフィットネスを。"
+              width="1672"
+              height="941"
+            />
+          </picture>
+          <a
+            href="https://fractal-workout.com/lp/contact/"
+            class="fv__hero-cta"
+            aria-label="健康チェック付き体験相談を予約する"
+          ></a>
+        </div>
+      </div>
+      <!-- concept -->
+      <div class="concept">
+        <div class="concept__inner">
+          <div class="concept__wrap">
+            <div class="concept__message animated__fadeIn --delay0">
+              <p class="concept__message-main">
+                健診結果や体力低下が気になり始めた方へ。<br />自己流ではなく、専門家と一緒に<br />安全に運動を始める選択を。
+              </p>
+              <p class="concept__message-sub">
+                原宿駅徒歩30秒の落ち着いた空間で、<br />健康指標・体力・生活習慣を整えるメディカルフィットネスを。
+              </p>
+            </div>
+            <div class="concept__images animated__fadeIn --delay0">
+              <div class="concept__image">
+                <img
+                  src="lp-medical-fitness/img/consultation-assessment.png"
+                  alt="メディカルフィットネスの清潔な相談スペース"
+                  width="500"
+                  height="350"
+                />
+              </div>
+              <div class="concept__image">
+                <img
+                  src="lp-medical-fitness/img/supervised-exercise.png"
+                  alt="専門スタッフによる安全な運動指導"
+                  width="400"
+                  height="260"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="cta__box concept__cta-box animated__fadeIn --delay0">
+            <span class="cta__box-text"
+              ><span class="cta__box-text-big">1</span>日<span
+                class="cta__box-text-big"
+                >3</span
+              >枠限定</span
+            >
+            <div class="cta__box-button concept__cta-button">
+              <a
+                href="https://fractal-workout.com/lp/contact/"
+                class="c-button c-concept__button"
+                >健康チェック付き体験相談を予約する</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- problem -->
+      <section class="problem">
+        <div class="problem__inner l-inner">
+          <h2 class="problem__heading js-title">
+            <span class="problem__heading-top">その健診結果や不調、</span>
+            <span class="problem__heading-wrap">
+              <span class="problem__heading-main">運動で整えるサイン</span>
+              <span class="problem__heading-bottom">かもしれません。</span>
+            </span>
+          </h2>
+          <div class="problem__wrap">
+            <div class="problem__content animated__fadeIn --delay0">
+              <div class="problem__content-image">
+                <img
+                  src="lp-medical-fitness/img/consultation-assessment.png"
+                  alt=""
+                  width="390"
+                  height="650"
+                  loading="lazy"
+                />
+              </div>
+              <div class="problem__content-box">
+                <span class="problem__content-title">健診数値が気になる</span>
+                <p class="problem__content-text">
+                  血圧、血糖、脂質、体重など、気になる項目が増えてきた。何から始めればよいか分からない方に、運動の入口をつくります。
+                </p>
+              </div>
+            </div>
+            <div class="problem__content animated__fadeIn --delay1">
+              <div class="problem__content-image">
+                <img
+                  src="lp-medical-fitness/img/supervised-exercise.png"
+                  alt=""
+                  width="390"
+                  height="650"
+                  loading="lazy"
+                />
+              </div>
+              <div class="problem__content-box">
+                <span class="problem__content-title"
+                  >運動したいが<br />不安がある</span
+                >
+                <p class="problem__content-text">
+                  過去のケガや体力低下があり、強い運動は不安。体調や運動歴を確認しながら、低負荷から安全に進めます。
+                </p>
+              </div>
+            </div>
+            <div class="problem__content animated__fadeIn --delay2">
+              <div class="problem__content-image">
+                <img
+                  src="lp-medical-fitness/img/supervised-exercise.png"
+                  alt=""
+                  width="390"
+                  height="650"
+                  loading="lazy"
+                />
+              </div>
+              <div class="problem__content-box">
+                <span class="problem__content-title">自己流では続かない</span>
+                <p class="problem__content-text">
+                  一人で始めると無理をしすぎる、または続かない。測定と面談を重ねながら、生活に組み込める運動習慣へ導きます。
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- about -->
+      <section class="about">
+        <div class="about__inner">
+          <h2 class="about__heading js-title">
+            <span class="about__heading-top01">そんな方のための</span>
+            <span class="about__heading-top02"
+              >医療連携型フィットネスが</span
+            >
+            <span class="about__heading-main"
+              >フラクタルメディカルフィットネスです。</span
+            >
+          </h2>
+          <div class="about_wrap">
+            <div class="about__image animated__fadeIn --delay1">
+              <img
+                src="lp-medical-fitness/img/supervised-exercise.png"
+                alt="落ち着いたプライベートメディカルフィットネス空間"
+                width="687"
+                height="458"
+                loading="lazy"
+              />
+            </div>
+            <div class="about__box animated__fadeIn --delay0">
+              <p class="about__box-text">
+                FRACTAL MEDICAL FITNESSは、健診結果・体力低下・生活習慣の乱れが気になる方のためのメディカルフィットネスです。医療的な視点を取り入れ、無理のない運動を専門家と一緒に設計します。
+              </p>
+              <p class="about__box-text">
+                目指すのは、短期間で追い込むことではなく、体調・数値・生活リズムに合わせて続けられる状態。医療機関への相談が必要な場合も含め、無理なく安全な選択を大切にします。
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- vision -->
+      <section class="vision">
+        <div class="vision__inner l-inner">
+          <div class="vision__heading js-title">
+            <h2 class="vision__heading__main">私たちが目指す理想</h2>
+            <p class="vision__heading__sub">
+              それは、検査数値だけでなく、<br />体力・睡眠・気分まで整い、<br />毎日を安心して動けること。
+            </p>
+          </div>
+          <div class="vision__wrap animated__fadeIn --delay0">
+            <div class="vision__content">
+              <div class="vision__content-wrap">
+                <div class="vision__content-box vision__box">
+                  <p class="vision__box-title">
+                    フラクタルメディカルフィットネスは、<br />健康習慣のためのパートナーです。
+                  </p>
+                  <p class="vision__box-text">
+                    目指すのは、数値だけを見ることではなく、日常の動きと生活習慣を変えていくこと。体組成、血圧、運動歴、生活リズムを確認しながら、無理なく続く運動を提供します。
+                  </p>
+                  <p class="vision__box-text">
+                    一度身につけた運動習慣は、将来の健康リスクに備える資産になります。自己流の不安を減らし、専門家と確認しながら続けられる安心感を大切にします。
+                  </p>
+                </div>
+                <div class="vision__content-images">
+                  <div class="vision__content-image">
+                    <img
+                      src="lp-medical-fitness/img/consultation-assessment.png"
+                      alt="明るく落ち着いたメディカルフィットネススタジオ"
+                      width="440"
+                      height="330"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div class="vision__content-image">
+                    <img
+                      src="lp-medical-fitness/img/supervised-exercise.png"
+                      alt="低負荷で安全に行うメディカルフィットネスの様子"
+                      width="440"
+                      height="330"
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="vision__content-items">
+                <div class="vision__content-item vision__item">
+                  <span class="vision__item-number">1</span>
+                  <span class="vision__item-title">健康指標の見える化</span>
+                  <p class="vision__item-text">
+                    体組成や血圧、運動の変化を確認し、今の身体に合った目標を設定します。
+                  </p>
+                </div>
+                <div class="vision__content-item vision__item">
+                  <span class="vision__item-number">2</span>
+                  <span class="vision__item-title">安全な運動設計</span>
+                  <p class="vision__item-text">
+                    体力や既往歴、痛みの有無を確認し、低負荷から無理なく段階的に進めます。
+                  </p>
+                </div>
+                <div class="vision__content-item vision__item">
+                  <span class="vision__item-number">3</span>
+                  <span class="vision__item-title">続けられる生活習慣</span>
+                  <p class="vision__item-text">
+                    運動だけでなく、日常活動・睡眠・食習慣まで見直し、継続しやすい形へ整えます。
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- feature -->
+      <section id="feature" class="feature">
+        <div class="feature__inner">
+          <h2 class="feature__heading js-title">
+            <span class="feature__heading-top"
+              >FRACTAL MEDICAL FITNESSが<br />選ばれる</span
+            >
+            <span class="feature__heading-main"><span>4</span>つの理由</span>
+          </h2>
+          <div class="feature__wrap">
+            <div class="feature__content animated__fadeIn --delay0">
+              <div class="feature__content-box feature__box">
+                <span class="feature__box-number">01</span>
+                <h3 class="feature__box-title">
+                  医療的な視点で始める：<br
+                    class="sm-visible"
+                  />安心のフィットネス設計
+                </h3>
+                <p class="feature__box-text">
+                  健診結果や体調、運動歴を丁寧にヒアリング。必要に応じて医療機関での確認をおすすめしながら、安全な運動範囲を考えます。
+                </p>
+                <p class="feature__box-text">
+                  体組成、血圧、柔軟性、姿勢、歩行などを確認し、主観ではなくデータも見ながらプランを設計します。
+                </p>
+                <p class="feature__box-text">
+                  清潔で落ち着いた空間で、初めての方や運動に不安がある方でも取り組みやすい時間を提供します。
+                </p>
+              </div>
+              <div class="feature__content-image">
+                <img
+                  src="lp-medical-fitness/img/consultation-assessment.png"
+                  alt="清潔感のあるメディカルフィットネスルーム"
+                  width="660"
+                  height="275"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+            <div class="feature__content animated__fadeIn --delay1">
+              <div class="feature__content-box feature__box">
+                <span class="feature__box-number">02</span>
+                <h3 class="feature__box-title">
+                  生活習慣病リスクに備える：<br
+                    class="sm-visible"
+                  />低負荷からの運動習慣
+                </h3>
+                <p class="feature__box-text">
+                  血圧・血糖・脂質・体重などが気になる方に、急に追い込まない有酸素運動と筋コンディショニングを提案します。
+                </p>
+                <p class="feature__box-text">
+                  運動強度を確認しながら進めるため、久しぶりの運動でも始めやすい設計です。
+                </p>
+              </div>
+              <div class="feature__content-image">
+                <img
+                  src="lp-medical-fitness/img/supervised-exercise.png"
+                  alt="データを見ながら運動計画を相談する様子"
+                  width="660"
+                  height="275"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+            <div class="feature__content animated__fadeIn --delay2">
+              <div class="feature__content-box feature__box">
+                <span class="feature__box-number">03</span>
+                <h3 class="feature__box-title">
+                  医療費控除の制度理解：<br
+                    class="sm-visible"
+                  />条件と必要書類を案内
+                </h3>
+                <p class="feature__box-text">
+                  指定運動療法施設で医師の運動療法処方に基づく利用など、条件を満たす場合に施設利用料が医療費控除の対象となる制度があります。
+                </p>
+                <p class="feature__box-text">
+                  制度の対象可否は施設の指定状況・医師の指示・必要書類に左右されます。LPでは断定せず、相談時に確認できるようご案内します。
+                </p>
+              </div>
+              <div class="feature__content-image">
+                <img
+                  src="lp-medical-fitness/img/deduction-documents.png"
+                  alt="医療費控除の必要書類を確認するイメージ"
+                  width="660"
+                  height="275"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+            <div class="feature__content animated__fadeIn --delay3">
+              <div class="feature__content-box feature__box">
+                <span class="feature__box-number">04</span>
+                <h3 class="feature__box-title">
+                  一時的な運動ではなく<br
+                    class="md-visible"
+                  />「通い続けられる健康管理」へ：<br
+                    class="sm-visible"
+                  />長期伴走
+                </h3>
+                <p class="feature__box-text">
+                  メディカルフィットネスは、1回だけ頑張る場所ではありません。測定、運動、振り返りを重ね、生活に定着する健康管理へつなげます。
+                </p>
+                <p class="feature__box-text">
+                  短期的な体重変化だけでなく、動ける身体、疲れにくい日常、将来に備える習慣を目指します。
+                </p>
+              </div>
+              <div class="feature__content-image">
+                <img
+                  src="lp-medical-fitness/img/deduction-documents.png"
+                  alt="医療費控除の必要書類を確認するイメージ"
+                  width="660"
+                  height="275"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- program -->
+      <section id="program" class="program">
+        <div class="program__title">
+          <span class="program__title-text">MEDICAL PROGRAM</span>
+        </div>
+        <div class="program__inner l-inner">
+          <h2 class="program__heading js-title">
+            <span class="program__heading-top">健診結果と体力に向き合う、</span>
+            <span class="program__heading-main"
+              >メディカル<br class="md-hidden" />フィットネス<br
+                class="md-hidden"
+              />プログラム</span
+            >
+            <span class="program__heading-message">
+              測定・運動・生活習慣の視点で、<br />無理なく続く健康づくりを。
+            </span>
+          </h2>
+          <div class="program__content animated__fadeIn --delay0">
+            <span class="program__content-step">S<span>TEP</span>.1</span>
+            <h3 class="program__content-title">
+              健康状態の確認と<br class="md-hidden" />目標設定
+            </h3>
+            <p class="program__content-text">
+              健診結果、既往歴、運動歴、生活リズムを丁寧にヒアリング。無理なく始められる目標と優先順位を設定します。
+            </p>
+          </div>
+          <div class="program__content animated__fadeIn --delay1">
+            <span class="program__content-step">S<span>TEP</span>.2</span>
+            <h3 class="program__content-title">
+              体組成・血圧・<br class="md-hidden" />体力チェック
+            </h3>
+            <p class="program__content-text">
+              体組成や血圧、柔軟性、バランス、歩行などを確認。現在地を見える化し、運動強度の目安を決めます。
+            </p>
+          </div>
+          <div class="program__content animated__fadeIn --delay2">
+            <span class="program__content-step">S<span>TEP</span>.3</span>
+            <h3 class="program__content-title">
+              有酸素・筋力・<br class="md-hidden" />コンディショニング
+            </h3>
+            <p class="program__content-text">
+              ウォーキング、バイク、軽い筋力運動、ストレッチを組み合わせ、体調に合わせて安全に進めます。
+            </p>
+          </div>
+          <div class="program__content animated__fadeIn --delay3">
+            <span class="program__content-step">S<span>TEP</span>.4</span>
+            <h3 class="program__content-title">
+              生活習慣の<br class="md-hidden" />小さな改善
+            </h3>
+            <p class="program__content-text">
+              睡眠、食事、日常活動量なども確認し、運動効果を生活に定着させるための小さな改善を提案します。
+            </p>
+          </div>
+          <div class="program__content animated__fadeIn --delay4">
+            <span class="program__content-step">S<span>TEP</span>.5</span>
+            <p class="program__content-title">
+              定期測定と<br class="md-hidden" />プラン更新
+            </p>
+            <h3 class="program__content-text">
+              体組成や体力、主観的な疲れやすさを確認し、データと体感の両面からプランを調整します。
+            </h3>
+          </div>
+        </div>
+      </section>
+      <!-- voice -->
+      <section id="deduction" class="voice deduction">
+        <div class="voice__title js-title">
+          <span class="voice__title-text">DEDUCTION</span>
+        </div>
+        <h2 class="voice__top js-title">医療費控除の考え方</h2>
+        <div class="voice__inner">
+          <div class="voice__content animated__fadeIn --delay0">
+            <div class="voice__content-top">
+              <div class="voice__content-image">
+                <img
+                  src="lp-medical-fitness/img/consultation-assessment.png"
+                  alt="医療費控除の対象条件を確認するイメージ"
+                  width="180"
+                  height="195"
+                  loading="lazy"
+                />
+              </div>
+              <div class="voice__content-profile voice__profile">
+                <span class="voice__profile-name">対象になる可能性があるケース</span>
+                <span class="voice__profile-text">指定運動療法施設など</span>
+                <span class="voice__profile-text">条件あり</span>
+              </div>
+            </div>
+            <div class="voice__box">
+              <span class="voice__box-title"><span>P</span>OINT</span>
+              <p class="voice__box-text">
+                医療費控除の対象となるのは、単なるフィットネス利用料ではありません。厚生労働大臣認定の健康増進施設のうち、指定運動療法施設で、医師の運動療法処方に基づき実施するなどの条件があります。
+              </p>
+            </div>
+            <div class="voice__box">
+              <div class="voice__box-title">
+                <span class="voice__box-label">CHECK</span>
+              </div>
+              <p class="voice__box-text">
+                必要になる代表的なものは、医師の運動療法処方せん、施設利用時の領収書、実施証明に関する書類などです。確定申告では医療費控除の明細書を作成し、領収書等は一定期間保管します。
+              </p>
+            </div>
+          </div>
+          <div class="voice__content animated__fadeIn --delay1">
+            <div class="voice__content-top">
+              <div class="voice__content-image">
+                <img
+                  src="lp-medical-fitness/img/deduction-documents.png"
+                  alt="医療費控除の必要書類を整理するイメージ"
+                  width="180"
+                  height="195"
+                  loading="lazy"
+                />
+              </div>
+              <div class="voice__content-profile voice__profile">
+                <span class="voice__profile-name">事前に確認しておきたいこと</span>
+                <span class="voice__profile-text">対象可否の確認</span>
+                <span class="voice__profile-text">条件あり</span>
+              </div>
+            </div>
+            <div class="voice__box">
+              <span class="voice__box-title"><span>P</span>OINT</span>
+              <p class="voice__box-text">
+                施設が指定運動療法施設に該当するか、医師の指示に基づく利用か、対象期間や書類が揃うかを事前に確認します。美容・リラクゼーション目的の利用は原則として対象外です。
+              </p>
+            </div>
+            <div class="voice__box">
+              <div class="voice__box-title">
+                <span class="voice__box-label">CHECK</span>
+              </div>
+              <p class="voice__box-text">
+                制度は個別条件により判断されます。FRACTAL MEDICAL FITNESSでは、体験相談時に制度の考え方と確認ポイントを分かりやすくご案内します。最終的な申告判断は税務署・税理士等へご確認ください。
+              </p>
+            </div>
+          </div>
+        </div>
+        <p class="voice__content-text">
+          ※医療費控除の対象可否は、施設指定、医師の指示、利用目的、必要書類などにより異なります。税務上の最終判断は税務署・税理士等へご確認ください。
+        </p>
+      </section>
+      <!-- private -->
+      <section class="private">
+        <div class="private__inner">
+          <div class="private__wrap js-title">
+            <div class="private__heading">
+              <div class="private__heading-text private__heading-text--label">
+                <span>原宿駅徒歩30秒</span>
+              </div>
+              <span class="private__heading__sub"></span>
+              <span class="private__heading__main"
+                >医療的な安心感と、<br />上質な運動空間を両立</span
+              >
+            </div>
+            <div class="private__content">
+              <div class="private__content-image">
+                <img
+                  src="lp-medical-fitness/img/consultation-assessment.png"
+                  alt="明るく開放的なメディカルフィットネス空間"
+                  width="900"
+                  height="516"
+                  loading="lazy"
+                />
+              </div>
+              <p class="private__content-text">
+                FRACTAL MEDICAL FITNESSは、JR原宿駅から徒歩30秒という通いやすいロケーションに位置します。
+                健康状態や運動への不安を相談しやすいよう、空間は清潔感と落ち着きを大切に設計。周囲を気にせず、ご自身の状態に合わせて取り組めます。
+              </p>
+              <p class="private__content-text">
+                医療機関のような安心感と、パーソナルジムのような続けやすさ。その両方を大切にし、健康づくりを日常に組み込める場所を目指します。
+                営業時間は早朝6時から22時まで。仕事前後や休日など、ライフスタイルに合わせてご利用いただけます。
+              </p>
+            </div>
+          </div>
+          <div class="private__images">
+            <div class="private__image">
+              <img
+                src="lp-medical-fitness/img/consultation-assessment.png"
+                alt="清潔感のある上質なメディカルフィットネス空間"
+                width="480"
+                height="325"
+                loading="lazy"
+              />
+            </div>
+            <div class="private__image">
+              <img
+                src="lp-medical-fitness/img/supervised-exercise.png"
+                alt="専門スタッフによる運動サポート"
+                width="480"
+                height="325"
+                loading="lazy"
+              />
+            </div>
+            <div class="private__image">
+              <img
+                src="lp-medical-fitness/img/supervised-exercise.png"
+                alt="低負荷で安全に行う運動プログラム"
+                width="480"
+                height="325"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- cta -->
+      <section class="cta" >
+        <div class="cta__inner l-inner js-title">
+          <h2 class="cta__heading">
+            <span class="cta__heading-sub">次は</span>
+            <span class="cta__heading-main"
+              >あなたが<br class="md-hidden" />健康を見える化し、<br class="md-hidden" />動ける毎日を<br
+                class="md-hidden"
+              />取り戻す番です。</span
+            >
+          </h2>
+          <p class="cta__text">
+            FRACTAL MEDICAL FITNESSの<br class="md-hidden" />健康チェック付き体験相談では、<br />健診結果や体力のお悩み、<br />運動への不安を丁寧にヒアリングし、<br
+              class="md-hidden"
+            />今の状態に合う進め方をご提案します。 <br />自己流ではない健康づくりを、<br />ぜひご自身でご体感ください。
+          </p>
+          <p class="cta__text">
+            無理な勧誘は一切ございません。<br
+              class="md-hidden"
+            />まずはお気軽にお越しいただき、<br />空間・サポート・運動設計があなたに合うか、<br
+              class="md-hidden"
+            />ゆっくりご判断ください。
+          </p>
+          <div class="cta__box">
+            <span class="cta__box-text cta__box-text-white"
+              ><span class="cta__box-text-big">1</span>日<span
+                class="cta__box-text-big"
+                >3</span
+              >枠限定</span
+            >
+            <div class="cta__box-button">
+              <a
+                href="https://fractal-workout.com/lp/contact/"
+                class="c-button cta__button"
+                >健康チェック付き体験相談を予約する</a
+              >
+            </div>
+          </div>
+          <div class="cta__contact">
+            <span class="cta__contact-text">お電話でのお問い合わせ</span>
+            <a href="tel:0120107125" class="cta__contact-tel">0120-107-125 </a>
+            <span class="cta__contact-time"
+              >受付時間 <span>10:00-17:00</span></span
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- footer -->
+    <footer class="footer">
+      <div class="footer__inner l-inner">
+        <div class="footer__message">
+          <p class="footer__message-text1">ご案内</p>
+          <p class="footer__message-text2">お客様の個人情報の取り扱いについては、<br>
+            体験相談ご予約時またはご来店時に<br>
+            ご説明いたします。
+          </p>
+        </div>
+        <div class="footer__company">
+          <span class="footer__company-name">FRACTAL WORKOUT 株式会社</span>
+          <span class="footer__company-address">
+            〒150-0001<br />東京都渋谷区神宮前1-14-34 原宿神宮の森4F</span
+          >
+          <div class="footer__company-tel">
+            <span>TEL</span>
+            <span
+              >0120-107-125 <br class="lg-hidden" /><span
+                class="footer__company-tel-small"
+                >(受付時間：<span class="footer__company-tel-big"
+                  >10:00 - 17:00</span
+                >)</span
+              ></span
+            >
+          </div>
+          <div class="footer__company-mail">
+            <span>Email</span>
+            <span>info3@fractal-workout.jp</span>
+          </div>
+          <div class="footer__company-time">
+            <span>営業時間</span>
+            <span> 6:00 - 22:00</span>
+          </div>
+        </div>
+      </div>
+      <p class="footer__copyright">
+        <small>&copy;2025 FRACTAL MEDICAL FITNESS. All Rights Reserved.</small>
+      </p>
+    </footer>
+
+    <!--  jQuery_CDN -->
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- GSAP CDN-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <!-- 自作のJS -->
+    <script src="script.js"></script>
+  </body>
+</html>
