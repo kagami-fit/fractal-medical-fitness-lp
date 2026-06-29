@@ -427,7 +427,7 @@ textarea {
   }
 }
 .about {
-  background: url(lp-medical-fitness/img/consultation-assessment.png) no-repeat top left/cover;
+  background: url(lp-medical-fitness/img/mf-health-consultation.jpg) no-repeat top left/cover;
   overflow: hidden;
   padding-block: 60px 55px;
   position: relative;
@@ -588,12 +588,12 @@ textarea {
   }
 }
 .concept {
-  background: url(lp-medical-fitness/img/hero-medical-fitness.png) no-repeat top -100px center/cover;
+  background: url(lp-medical-fitness/img/mf-facility-window-powerplate.jpg) no-repeat top -100px center/cover;
   padding-block: 70px 200px;
 }
 @media screen and (min-width: 768px) {
   .concept {
-    background: url(lp-medical-fitness/img/hero-medical-fitness.png) no-repeat center center/cover;
+    background: url(lp-medical-fitness/img/mf-facility-window-powerplate.jpg) no-repeat center center/cover;
     padding-block: 5vw 200px;
   }
   .concept__wrap {
@@ -725,12 +725,12 @@ textarea {
   }
 }
 .cta {
-  background: url(lp-medical-fitness/img/hero-medical-fitness.png) no-repeat center center/cover;
+  background: url(lp-medical-fitness/img/mf-facility-window-powerplate.jpg) no-repeat center center/cover;
   padding-block: 53px 80px;
 }
 @media screen and (min-width: 768px) {
   .cta {
-    background: url(lp-medical-fitness/img/hero-medical-fitness.png) no-repeat center center/cover;
+    background: url(lp-medical-fitness/img/mf-facility-window-powerplate.jpg) no-repeat center center/cover;
     padding-block: min(10vw, 155px) min(11vw, 155px);
   }
 }
@@ -885,7 +885,7 @@ textarea {
   }
 }
 .feature__heading {
-  background: url(lp-medical-fitness/img/supervised-exercise.png) no-repeat center center/cover;
+  background: url(lp-medical-fitness/img/mf-power-plate-guidance.jpg) no-repeat center center/cover;
   color: #fff;
   font-family: "Shippori Mincho", serif;
   letter-spacing: 0.02em;
@@ -895,7 +895,7 @@ textarea {
 }
 @media screen and (min-width: 768px) {
   .feature__heading {
-    background: url(lp-medical-fitness/img/supervised-exercise.png) no-repeat center center/cover;
+    background: url(lp-medical-fitness/img/mf-power-plate-guidance.jpg) no-repeat center center/cover;
     display: flex;
     flex-direction: column;
     padding-block: 4.3vw 5vw;
@@ -1211,7 +1211,7 @@ textarea {
   }
 }
 .footer__message {
-  background: url(lp-medical-fitness/img/consultation-assessment.png) no-repeat top left/cover;
+  background: url(lp-medical-fitness/img/mf-health-consultation.jpg) no-repeat top left/cover;
   padding-block: 39px 40px;
   position: relative;
   text-align: center;
@@ -1836,7 +1836,7 @@ textarea {
   }
 }
 .problem {
-  background: url(lp-medical-fitness/img/consultation-assessment.png) no-repeat top left/cover;
+  background: url(lp-medical-fitness/img/mf-health-consultation.jpg) no-repeat top left/cover;
   color: #fff;
   margin-top: -280px;
   padding-block: 175px 40px;
@@ -1849,7 +1849,7 @@ textarea {
 }
 @media screen and (min-width: 1600px) {
   .problem {
-    background: url(lp-medical-fitness/img/consultation-assessment.png) no-repeat top -30px left/cover;
+    background: url(lp-medical-fitness/img/mf-health-consultation.jpg) no-repeat top -30px left/cover;
   }
 }
 .problem__heading {
@@ -2019,7 +2019,7 @@ textarea {
   }
 }
 .program {
-  background: url(lp-medical-fitness/img/consultation-assessment.png) no-repeat center center/cover;
+  background: url(lp-medical-fitness/img/mf-health-consultation.jpg) no-repeat center center/cover;
   padding-block: 48px 60px;
   position: relative;
 }
@@ -2034,7 +2034,7 @@ textarea {
   }
 }
 .program::before {
-  background: url(lp-medical-fitness/img/consultation-assessment.png) no-repeat top center/100%
+  background: url(lp-medical-fitness/img/mf-health-consultation.jpg) no-repeat top center/100%
     auto;
   content: "";
   height: 700px;
@@ -2045,7 +2045,7 @@ textarea {
 }
 @media screen and (min-width: 768px) {
   .program::before {
-    background: url(lp-medical-fitness/img/consultation-assessment.png) no-repeat top center/100%
+    background: url(lp-medical-fitness/img/mf-health-consultation.jpg) no-repeat top center/100%
       auto;
     height: 800px;
     width: 100%;
@@ -2276,7 +2276,7 @@ textarea {
   }
 }
 .vision__wrap {
-  background: url(lp-medical-fitness/img/supervised-exercise.png) no-repeat center center/cover;
+  background: url(lp-medical-fitness/img/mf-power-plate-guidance.jpg) no-repeat center center/cover;
   margin-top: 26px;
   padding-block: 30px 53px;
   padding-inline: 20px;
@@ -3281,4 +3281,537 @@ body {
     top: 60.8%;
     width: 44.1%;
   }
+}
+
+/* MF revision: text-driven hero, fixed problem cards, and detailed deduction block */
+.fv__hero-frame {
+  min-height: 720px;
+  overflow: hidden;
+}
+
+.fv__hero-frame::after {
+  background: linear-gradient(
+    90deg,
+    rgba(248, 251, 250, 0.96) 0%,
+    rgba(248, 251, 250, 0.9) 39%,
+    rgba(248, 251, 250, 0.32) 64%,
+    rgba(248, 251, 250, 0.04) 100%
+  );
+  content: "";
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+  z-index: 1;
+}
+
+.fv__hero-picture {
+  inset: 0;
+  position: absolute;
+}
+
+.fv__hero-picture img {
+  height: 100%;
+  object-fit: cover;
+  object-position: 66% center;
+}
+
+.fv__hero-copy {
+  color: var(--medical-ink);
+  display: flex;
+  flex-direction: column;
+  min-height: 720px;
+  justify-content: center;
+  max-width: min(88vw, 640px);
+  padding: 42px 22px 46px;
+  position: relative;
+  z-index: 2;
+}
+
+.fv__eyebrow {
+  color: var(--medical-blue);
+  font-family: "EB Garamond", serif;
+  font-size: clamp(18px, 4.8vw, 30px);
+  letter-spacing: 0.12em;
+}
+
+.fv__title {
+  font-family: "Shippori Mincho", serif;
+  font-size: clamp(34px, 8.8vw, 58px);
+  font-weight: 500;
+  line-height: 1.35;
+  margin-top: 18px;
+}
+
+.fv__lead {
+  font-size: clamp(15px, 4vw, 22px);
+  font-weight: 700;
+  line-height: 1.8;
+  margin-top: 22px;
+}
+
+.fv__button {
+  align-self: flex-start;
+  margin-top: 28px;
+  min-width: min(100%, 360px);
+}
+
+.fv__points {
+  display: grid;
+  gap: 10px;
+  list-style: none;
+  margin: 28px 0 0;
+  padding: 0;
+}
+
+.fv__points li {
+  align-items: center;
+  background: rgba(248, 251, 250, 0.84);
+  border: 1px solid var(--medical-line);
+  color: var(--medical-ink);
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 14px;
+  font-weight: 700;
+  gap: 6px;
+  line-height: 1.45;
+  min-height: 52px;
+  padding: 10px 14px;
+}
+
+.fv__points span {
+  color: var(--medical-muted);
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  width: 100%;
+}
+
+.problem__wrap {
+  align-items: stretch;
+}
+
+.problem__content {
+  display: flex;
+  min-height: 580px;
+}
+
+.problem__content-image {
+  border: 1px solid rgba(217, 237, 240, 0.2);
+  overflow: hidden;
+  width: 100%;
+}
+
+.problem__content-image img {
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+}
+
+.problem__content-box {
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  left: 0;
+  margin-top: 0;
+  min-height: 238px;
+  padding: 24px 22px;
+  position: absolute;
+  right: 0;
+  top: auto;
+}
+
+.problem__content-title {
+  color: #fff;
+  font-size: clamp(22px, 5.6vw, 30px);
+  line-height: 1.35;
+}
+
+.problem__content-title::after {
+  bottom: -14px;
+  left: 0;
+  right: auto;
+  width: 100%;
+}
+
+.problem__content-text {
+  color: rgba(255, 255, 255, 0.94);
+  font-size: clamp(14px, 3.6vw, 16px);
+  letter-spacing: 0.02em;
+  line-height: 1.75;
+  margin-top: 34px;
+  padding-right: 0;
+}
+
+.deduction__inner {
+  margin-top: 40px;
+  max-width: 1120px;
+}
+
+.deduction__lead {
+  background: rgba(248, 251, 250, 0.96);
+  border: 1px solid var(--medical-line);
+  box-shadow: 0 24px 58px rgba(16, 44, 52, 0.1);
+  display: grid;
+  gap: 26px;
+  padding: 22px;
+}
+
+.deduction__lead-image {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+
+.deduction__lead-image img {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.deduction__heading,
+.deduction__card-title {
+  color: var(--medical-blue);
+  font-family: "Shippori Mincho", serif;
+  font-size: clamp(22px, 5.8vw, 34px);
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.deduction__text {
+  color: var(--medical-ink);
+  font-size: clamp(14px, 3.8vw, 17px);
+  line-height: 1.9;
+  margin-top: 16px;
+}
+
+.deduction__cards {
+  display: grid;
+  gap: 18px;
+  margin-top: 24px;
+}
+
+.deduction__card {
+  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid var(--medical-line);
+  padding: 22px;
+}
+
+.deduction__list {
+  display: grid;
+  gap: 10px;
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
+}
+
+.deduction__list li {
+  color: var(--medical-ink);
+  font-size: clamp(14px, 3.8vw, 16px);
+  line-height: 1.7;
+  padding-left: 18px;
+  position: relative;
+}
+
+.deduction__list li::before {
+  background: var(--medical-teal);
+  content: "";
+  height: 7px;
+  left: 0;
+  position: absolute;
+  top: 0.75em;
+  width: 7px;
+}
+
+.deduction__note {
+  color: var(--medical-muted);
+  font-size: clamp(12px, 3.4vw, 15px);
+  line-height: 1.8;
+  margin-top: 22px;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+.feature {
+  overflow: hidden;
+}
+
+.feature__content-image img {
+  max-width: 100%;
+}
+
+.concept__message-main {
+  letter-spacing: 0.02em;
+  overflow-wrap: anywhere;
+}
+
+.program__heading-top {
+  max-width: 100%;
+}
+
+.cta__box-text {
+  display: inline-block;
+  min-width: 196px;
+}
+
+.cta__box-text::before {
+  translate: calc(-50% - 118px) -50%;
+}
+
+.cta__box-text::after {
+  translate: calc(-50% + 192px) -50%;
+}
+
+@media screen and (max-width: 767px) {
+  .problem__content {
+    width: min(90vw, 390px);
+  }
+
+  .feature__content::before,
+  .feature__content:nth-child(2n)::before {
+    translate: -50% 0;
+    width: 100%;
+  }
+
+  .feature__box {
+    padding-inline: 20px;
+  }
+
+  .feature__content-image {
+    padding-inline: 20px;
+  }
+
+  .feature__content-image img {
+    width: 100%;
+  }
+
+  .cta__box-text::before,
+  .cta__box-text::after {
+    width: 46px;
+  }
+
+  .cta__box-text::before {
+    translate: calc(-50% - 98px) -50%;
+  }
+
+  .cta__box-text::after {
+    translate: calc(-50% + 168px) -50%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .fv__hero-frame,
+  .fv__hero-copy {
+    min-height: min(760px, calc(100vh - 96px));
+  }
+
+  .fv__hero-copy {
+    margin-left: min(5vw, 72px);
+    max-width: min(51vw, 720px);
+    padding-block: 64px;
+  }
+
+  .fv__title {
+    font-size: clamp(38px, 3.8vw, 64px);
+  }
+
+  .fv__points {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    max-width: 720px;
+  }
+
+  .problem__wrap {
+    align-items: flex-start;
+    gap: min(2vw, 28px);
+    justify-content: center;
+  }
+
+  .problem__content {
+    max-width: 390px;
+    min-height: min(52vw, 650px);
+    width: min(30vw, 390px);
+  }
+
+  .problem__content:nth-child(2),
+  .problem__content:nth-of-type(3) {
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+
+  .problem__content-box {
+    min-height: min(22vw, 285px);
+    padding: min(2vw, 28px);
+  }
+
+  .problem__content-title {
+    font-size: clamp(24px, 1.8vw, 32px);
+  }
+
+  .problem__content-text {
+    font-size: clamp(14px, 1vw, 16px);
+    line-height: 1.75;
+    margin-top: min(3vw, 42px);
+  }
+
+  .deduction__inner {
+    margin-top: min(4.5vw, 72px);
+  }
+
+  .deduction__lead {
+    align-items: center;
+    grid-template-columns: minmax(300px, 0.82fr) 1fr;
+    padding: min(3vw, 42px);
+  }
+
+  .deduction__cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-top: 28px;
+  }
+
+  .deduction__card {
+    padding: min(2.4vw, 32px);
+  }
+}
+
+/* FV photo replacement */
+.fv--image-hero {
+  background: #f8fbfa;
+  padding-top: 78px;
+}
+
+.fv--image-hero .fv__hero-frame {
+  min-height: calc(100svh - 78px);
+  overflow: hidden;
+}
+
+.fv--image-hero .fv__hero-frame::after {
+  background: linear-gradient(
+    180deg,
+    rgba(248, 251, 250, 0.94) 0%,
+    rgba(248, 251, 250, 0.84) 44%,
+    rgba(248, 251, 250, 0.18) 100%
+  );
+  display: block;
+}
+
+.fv--image-hero .fv__hero-picture {
+  display: block;
+  inset: 0;
+  position: absolute;
+}
+
+.fv--image-hero .fv__hero-picture img {
+  display: block;
+  height: 100%;
+  min-height: 0;
+  object-fit: cover;
+  object-position: center bottom;
+  width: 100%;
+}
+
+.fv--image-hero .fv__hero-copy {
+  justify-content: flex-start;
+  min-height: calc(100svh - 78px);
+  padding-block: 28px 36px;
+}
+
+.fv--image-hero .fv__eyebrow {
+  font-size: clamp(16px, 4.2vw, 22px);
+}
+
+.fv--image-hero .fv__title {
+  font-size: clamp(25px, 7vw, 38px);
+  line-height: 1.45;
+}
+
+.fv--image-hero .fv__lead {
+  font-size: clamp(14px, 3.6vw, 18px);
+  line-height: 1.7;
+}
+
+.fv--image-hero .fv__button {
+  font-size: clamp(15px, 4vw, 18px);
+  min-width: min(100%, 340px);
+}
+
+.fv--image-hero .fv__points {
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.fv--image-hero .fv__points li {
+  font-size: 13px;
+  min-height: auto;
+  padding: 8px 12px;
+}
+
+.fv--image-hero .fv__points span {
+  font-size: 11px;
+}
+
+@media screen and (min-width: 768px) {
+  .fv--image-hero {
+    padding-top: 96px;
+  }
+
+  .fv--image-hero .fv__hero-frame {
+    min-height: min(760px, calc(100vh - 96px));
+  }
+
+  .fv--image-hero .fv__hero-frame::after {
+    background: linear-gradient(
+      90deg,
+      rgba(248, 251, 250, 0.98) 0%,
+      rgba(248, 251, 250, 0.92) 42%,
+      rgba(248, 251, 250, 0.22) 68%,
+      rgba(248, 251, 250, 0) 100%
+    );
+  }
+
+  .fv--image-hero .fv__hero-picture img {
+    object-position: center center;
+  }
+
+  .fv--image-hero .fv__hero-copy {
+    justify-content: center;
+    min-height: min(760px, calc(100vh - 96px));
+    padding-block: 64px;
+  }
+
+  .fv--image-hero .fv__title {
+    font-size: clamp(34px, 3vw, 54px);
+  }
+
+  .fv--image-hero .fv__lead {
+    font-size: clamp(15px, 1.18vw, 19px);
+  }
+
+  .fv--image-hero .fv__points li {
+    font-size: 13px;
+  }
+}
+
+/* Local preview: tune problem-card crops for generated people photos */
+.problem__content:nth-child(2) .problem__content-image img {
+  object-position: 82% center;
+}
+
+.problem__content:nth-child(3) .problem__content-image img {
+  object-position: 70% center;
+}
+
+/* Local preview: keep both trainer and client faces visible in feature reasons */
+.feature__content:nth-child(1) .feature__content-image img {
+  object-position: center 24%;
+}
+
+.feature__content:nth-child(2) .feature__content-image img {
+  object-position: center 24%;
+}
+
+.feature__content:nth-child(4) .feature__content-image img {
+  object-position: center 12%;
 }
