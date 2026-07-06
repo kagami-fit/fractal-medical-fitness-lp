@@ -3340,6 +3340,8 @@ body {
   font-weight: 500;
   line-height: 1.35;
   margin-top: 18px;
+  overflow-wrap: anywhere;
+  word-break: keep-all;
 }
 
 .fv__lead {
@@ -3347,11 +3349,23 @@ body {
   font-weight: 700;
   line-height: 1.8;
   margin-top: 22px;
+  overflow-wrap: anywhere;
+  word-break: keep-all;
+}
+
+.fv__lead-note {
+  display: block;
+  font-size: 0.78em;
+  font-weight: 700;
+  line-height: 1.6;
+  margin-top: 10px;
 }
 
 .fv__button {
   align-self: flex-start;
+  box-sizing: border-box;
   margin-top: 28px;
+  max-width: 100%;
   min-width: min(100%, 360px);
 }
 
@@ -3723,7 +3737,7 @@ body {
 }
 
 .fv--image-hero .fv__title {
-  font-size: clamp(25px, 7vw, 38px);
+  font-size: clamp(19px, 5vw, 34px);
   line-height: 1.45;
 }
 
@@ -3782,7 +3796,7 @@ body {
   }
 
   .fv--image-hero .fv__title {
-    font-size: clamp(34px, 3vw, 54px);
+    font-size: clamp(30px, 2.45vw, 42px);
   }
 
   .fv--image-hero .fv__lead {
