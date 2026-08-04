@@ -22,29 +22,75 @@
     />
     <link rel="stylesheet" href="https://use.typekit.net/moa2hxx.css" />
     <!-- CSS読込み -->
-    <link rel="stylesheet" href="style.css?v=20260712-counseling-image-v1"/>
+    <link rel="stylesheet" href="style.css?v=20260804-mobile-gap-email-v3"/>
 
 	<style>
+      .header__inner {
+        align-items: center !important;
+      }
+
+      .header__logo {
+        display: block !important;
+        flex: 0 0 auto !important;
+        line-height: 0 !important;
+        margin: 0 !important;
+        max-width: 230px !important;
+        width: min(18vw, 230px) !important;
+      }
+
+      .header__logo a,
+      .header__logo img {
+        display: block !important;
+      }
+
+      .header__logo img {
+        height: auto !important;
+        max-height: 78px !important;
+        object-fit: contain !important;
+        width: 100% !important;
+      }
+
+      body.admin-bar .header {
+        top: 32px;
+      }
+
+      @media screen and (max-width: 782px) {
+        body.admin-bar .header {
+          top: 46px;
+        }
+      }
+
+      @media screen and (max-width: 767px) {
+        .header__logo {
+          max-width: 150px !important;
+          width: 150px !important;
+        }
+
+        .header__logo img {
+          max-height: 52px !important;
+        }
+      }
+
       .concept {
-            background: url('lp-medical-fitness/img/mf-facility-window-powerplate.jpg') no-repeat top -100px center/cover;
+            background: url('lp-medical-fitness/img/mf-facility-window-powerplate.webp') no-repeat top -100px center/cover;
           }
         @media screen and (min-width: 768px) {
           .concept {
-            background: url('lp-medical-fitness/img/mf-facility-window-powerplate.jpg') no-repeat center center/cover;
+            background: url('lp-medical-fitness/img/mf-facility-window-powerplate.webp') no-repeat center center/cover;
           }
         }
 
       .problem {
-          background: url('lp-medical-fitness/img/mf-facility-gym-overview.jpg') no-repeat top left/cover;
+          background: url('lp-medical-fitness/img/mf-facility-gym-overview.webp') no-repeat top left/cover;
         }
         @media screen and (min-width: 1600px) {
           .problem {
-            background: url('lp-medical-fitness/img/mf-facility-gym-overview.jpg') no-repeat top -30px left/cover;
+            background: url('lp-medical-fitness/img/mf-facility-gym-overview.webp') no-repeat top -30px left/cover;
           }
         }
 
       .about {
-          background: url('lp-medical-fitness/img/mf-facility-reception.jpg') no-repeat top left/cover;
+          background: url('lp-medical-fitness/img/mf-facility-reception.webp') no-repeat top left/cover;
         }
 
       .about__inner::before {
@@ -58,45 +104,45 @@
 
 
       .feature__heading {
-            background: url('lp-medical-fitness/img/mf-machine-guidance.jpg?v=20260705-facility-bg-v1') no-repeat center center/cover ;
+            background: url('lp-medical-fitness/img/mf-machine-guidance.webp?v=20260705-facility-bg-v1') no-repeat center center/cover ;
           }
         @media screen and (min-width: 768px) {
           .feature__heading {
-            background: url('lp-medical-fitness/img/mf-machine-guidance.jpg?v=20260705-facility-bg-v1') no-repeat center center/cover ;
+            background: url('lp-medical-fitness/img/mf-machine-guidance.webp?v=20260705-facility-bg-v1') no-repeat center center/cover ;
           }
         }
 
       .program {
-          background: url('lp-medical-fitness/img/mf-program-bg-clean.jpg?v=20260705-program-bg-v1') no-repeat center center/cover;
+          background: url('lp-medical-fitness/img/mf-program-bg-clean.webp?v=20260705-program-bg-v1') no-repeat center center/cover;
         }
 
       .program::before {
-          background: url('lp-medical-fitness/img/mf-program-bg-clean.jpg?v=20260705-program-bg-v1') no-repeat top center/100%
+          background: url('lp-medical-fitness/img/mf-program-bg-clean.webp?v=20260705-program-bg-v1') no-repeat top center/100%
             auto;
         }
         @media screen and (min-width: 768px) {
           .program::before {
-            background: url('lp-medical-fitness/img/mf-program-bg-clean.jpg?v=20260705-program-bg-v1') no-repeat top center/100%
+            background: url('lp-medical-fitness/img/mf-program-bg-clean.webp?v=20260705-program-bg-v1') no-repeat top center/100%
               auto;
 
           }
         }
 
       .vision__wrap {
-        background: url('lp-medical-fitness/img/mf-power-plate-guidance.jpg?v=20260705-facility-bg-v1') no-repeat center center/cover;
+        background: url('lp-medical-fitness/img/mf-power-plate-guidance.webp?v=20260705-facility-bg-v1') no-repeat center center/cover;
         }
 
       .cta {
-            background: url('lp-medical-fitness/img/mf-hero-desktop-photo.jpg?v=20260705-facility-bg-v1') no-repeat center center/cover ;
+            background: url('lp-medical-fitness/img/mf-hero-desktop-photo.webp?v=20260705-facility-bg-v1') no-repeat center center/cover ;
           }
         @media screen and (min-width: 768px) {
           .cta {
-            background: url('lp-medical-fitness/img/mf-hero-desktop-photo.jpg?v=20260705-facility-bg-v1') no-repeat center center/cover ;
+            background: url('lp-medical-fitness/img/mf-hero-desktop-photo.webp?v=20260705-facility-bg-v1') no-repeat center center/cover ;
           }
         }
 
       .footer__message {
-          background: url('lp-medical-fitness/img/mf-facility-reception.jpg') no-repeat top left/cover;
+          background: url('lp-medical-fitness/img/mf-facility-reception.webp') no-repeat top left/cover;
         }
     </style>
   </head>
@@ -111,7 +157,9 @@
       <div class="header__inner l-inner">
         <h1 class="header__logo">
           <a href="#"
-            ><img src="https://fractal-workout.com/wp-content/uploads/2025/09/logo.webp" alt="ロゴ：FRACTAL WORKOUT"
+            ><img
+              src="lp-medical-fitness/img/mf-header-logo-medical-fitness-20260720.webp?v=20260720-logo-v1"
+              alt="ロゴ：FRACTAL MEDICAL FITNESS"
           /></a>
         </h1>
         <button
@@ -153,14 +201,14 @@
         <div class="fv__hero-frame">
           <picture class="fv__generated-picture">
             <source
-              srcset="lp-medical-fitness/img/mf-desktop-fv-idea-01.png?v=20260707-generated-fv-v1"
+              srcset="lp-medical-fitness/img/mf-fv-main-clean-polished-badges-20260722.webp?v=20260722-clean-polished-badges-v1"
               media="(min-width: 768px)"
             />
             <img
-              src="lp-medical-fitness/img/mf-mobile-fv-idea-01.png?v=20260707-generated-fv-v1"
+              src="lp-medical-fitness/img/mf-fv-main-clean-polished-badges-20260722.webp?v=20260722-clean-polished-badges-v1"
               alt=""
-              width="941"
-              height="1672"
+              width="1672"
+              height="941"
               fetchpriority="high"
             />
           </picture>
@@ -186,7 +234,7 @@
               <li>
                 <img
                   class="fv__point-image"
-                  src="lp-medical-fitness/img/mf-trust-badge-access-circle-text.jpg?v=20260707-trust-circle-mobile-v1"
+                  src="lp-medical-fitness/img/mf-trust-badge-access-circle-text.webp?v=20260707-trust-circle-mobile-v1"
                   alt=""
                   width="1254"
                   height="1254"
@@ -197,7 +245,7 @@
               <li>
                 <img
                   class="fv__point-image"
-                  src="lp-medical-fitness/img/mf-trust-badge-certified-circle-text.jpg?v=20260707-trust-circle-mobile-v1"
+                  src="lp-medical-fitness/img/mf-trust-badge-certified-circle-text.webp?v=20260707-trust-circle-mobile-v1"
                   alt=""
                   width="1254"
                   height="1254"
@@ -208,7 +256,7 @@
               <li>
                 <img
                   class="fv__point-image"
-                  src="lp-medical-fitness/img/mf-trust-badge-prescription-circle-text.jpg?v=20260707-trust-circle-mobile-v1"
+                  src="lp-medical-fitness/img/mf-trust-badge-prescription-circle-text.webp?v=20260707-trust-circle-mobile-v1"
                   alt=""
                   width="1254"
                   height="1254"
@@ -235,7 +283,7 @@
             <div class="concept__images animated__fadeIn --delay0">
               <div class="concept__image">
                 <img
-                  src="lp-medical-fitness/img/mf-health-consultation.jpg?v=20260705-facility-bg-v1"
+                  src="lp-medical-fitness/img/mf-health-consultation.webp?v=20260705-facility-bg-v1"
                   alt="メディカルフィットネスの清潔な相談スペース"
                   width="500"
                   height="350"
@@ -243,7 +291,7 @@
               </div>
               <div class="concept__image">
                 <img
-                  src="lp-medical-fitness/img/mf-power-plate-guidance.jpg?v=20260705-facility-bg-v1"
+                  src="lp-medical-fitness/img/mf-power-plate-guidance.webp?v=20260705-facility-bg-v1"
                   alt="専門スタッフによる安全なPower Plate指導"
                   width="400"
                   height="260"
@@ -282,7 +330,7 @@
             <div class="problem__content animated__fadeIn --delay0">
               <div class="problem__content-image">
                 <img
-                  src="lp-medical-fitness/img/mf-problem-health-numbers-20260712.png?v=20260712-problem-unified-v1"
+                  src="lp-medical-fitness/img/mf-problem-health-numbers-20260712.webp?v=20260712-problem-unified-v1"
                   alt=""
                   width="390"
                   height="650"
@@ -299,7 +347,7 @@
             <div class="problem__content animated__fadeIn --delay1">
               <div class="problem__content-image">
                 <img
-                  src="lp-medical-fitness/img/mf-problem-exercise-anxiety-20260712.png?v=20260712-problem-unified-v1"
+                  src="lp-medical-fitness/img/mf-problem-exercise-anxiety-20260712.webp?v=20260712-problem-unified-v1"
                   alt=""
                   width="390"
                   height="650"
@@ -316,7 +364,7 @@
             <div class="problem__content animated__fadeIn --delay2">
               <div class="problem__content-image">
                 <img
-                  src="lp-medical-fitness/img/mf-problem-continuity-selected-20260712.png?v=20260712-problem-continuity-selected-v1"
+                  src="lp-medical-fitness/img/mf-problem-continuity-selected-20260712.webp?v=20260712-problem-continuity-selected-v1"
                   alt=""
                   width="390"
                   height="650"
@@ -348,7 +396,7 @@
           <div class="about_wrap">
             <div class="about__image animated__fadeIn --delay1">
               <img
-                src="lp-medical-fitness/img/mf-counseling-room-unified-20260712.png?v=20260712-counseling-image-v1"
+                src="lp-medical-fitness/img/mf-counseling-room-unified-20260712.webp?v=20260712-counseling-image-v1"
                 alt="黒いポロシャツのスタッフがカウンセリングを行うメディカルフィットネス空間"
                 width="687"
                 height="458"
@@ -399,7 +447,7 @@
                 <div class="vision__content-images">
                   <div class="vision__content-image">
                     <img
-                      src="lp-medical-fitness/img/mf-health-consultation.jpg?v=20260705-facility-bg-v1"
+                      src="lp-medical-fitness/img/mf-health-consultation.webp?v=20260705-facility-bg-v1"
                       alt="明るく落ち着いたメディカルフィットネススタジオ"
                       width="440"
                       height="330"
@@ -408,7 +456,7 @@
                   </div>
                   <div class="vision__content-image">
                     <img
-                      src="lp-medical-fitness/img/mf-power-plate-guidance.jpg?v=20260705-facility-bg-v1"
+                      src="lp-medical-fitness/img/mf-power-plate-guidance.webp?v=20260705-facility-bg-v1"
                       alt="低負荷で安全に行うPower Plateサポートの様子"
                       width="440"
                       height="330"
@@ -474,7 +522,7 @@
               </div>
               <div class="feature__content-image">
                 <img
-                  src="lp-medical-fitness/img/mf-feature-reason-01-assessment.jpg?v=20260705-feature-reasons-v1"
+                  src="lp-medical-fitness/img/mf-feature-reason-01-assessment.webp?v=20260705-feature-reasons-v1"
                   alt="測定結果を確認しながら健康状態を把握する様子"
                   width="660"
                   height="275"
@@ -499,7 +547,7 @@
               </div>
               <div class="feature__content-image">
                 <img
-                  src="lp-medical-fitness/img/mf-feature-reason-02-low-load.jpg?v=20260705-feature-reasons-v1"
+                  src="lp-medical-fitness/img/mf-feature-reason-02-low-load.webp?v=20260705-feature-reasons-v1"
                   alt="Power Plateを使った低負荷の運動指導"
                   width="660"
                   height="275"
@@ -524,7 +572,7 @@
               </div>
               <div class="feature__content-image">
                 <img
-                  src="lp-medical-fitness/img/mf-feature-reason-03-documents.jpg?v=20260705-feature-reasons-v1"
+                  src="lp-medical-fitness/img/mf-feature-reason-03-documents.webp?v=20260705-feature-reasons-v1"
                   alt="医療費控除の必要書類を確認するイメージ"
                   width="660"
                   height="275"
@@ -551,7 +599,7 @@
               </div>
               <div class="feature__content-image">
                 <img
-                  src="lp-medical-fitness/img/mf-feature-reason-04-long-term.jpg?v=20260705-feature-reasons-v1"
+                  src="lp-medical-fitness/img/mf-feature-reason-04-long-term.webp?v=20260705-feature-reasons-v1"
                   alt="進捗を確認しながら継続的な健康管理を相談する様子"
                   width="660"
                   height="275"
@@ -638,7 +686,7 @@
           <div class="deduction__lead animated__fadeIn --delay0">
             <div class="deduction__lead-image">
               <img
-                src="lp-medical-fitness/img/mf-deduction-documents-selected-20260712.png?v=20260712-deduction-documents-selected-v1"
+                src="lp-medical-fitness/img/mf-deduction-documents-selected-20260712.webp?v=20260712-deduction-documents-selected-v1"
                 alt="医療費控除の必要書類を確認するイメージ"
                 width="520"
                 height="360"
@@ -698,7 +746,7 @@
             <div class="private__content">
               <div class="private__content-image">
                 <img
-                  src="lp-medical-fitness/img/mf-facility-reception.jpg"
+                  src="lp-medical-fitness/img/mf-facility-reception.webp"
                   alt="カウンセリングルームで健康状態を相談する様子"
                   width="900"
                   height="516"
@@ -718,7 +766,7 @@
           <div class="private__images">
             <div class="private__image">
               <img
-                src="lp-medical-fitness/img/mf-pilates-support.jpg?v=20260705-pilates-unify-v1"
+                src="lp-medical-fitness/img/mf-pilates-support.webp?v=20260705-pilates-unify-v1"
                 alt="専門スタッフによるピラティスの運動サポート"
                 width="480"
                 height="325"
@@ -727,7 +775,7 @@
             </div>
             <div class="private__image">
               <img
-                src="lp-medical-fitness/img/mf-facility-gym-overview.jpg"
+                src="lp-medical-fitness/img/mf-facility-gym-overview.webp"
                 alt="清潔感のある上質なメディカルフィットネス空間"
                 width="480"
                 height="325"
@@ -736,7 +784,7 @@
             </div>
             <div class="private__image">
               <img
-                src="lp-medical-fitness/img/mf-power-plate-guidance.jpg?v=20260705-facility-bg-v1"
+                src="lp-medical-fitness/img/mf-power-plate-guidance.webp?v=20260705-facility-bg-v1"
                 alt="Power Plateを使った低負荷で安全な運動プログラム"
                 width="480"
                 height="325"
@@ -747,7 +795,7 @@
         </div>
       </section>
       <!-- cta -->
-      <section class="cta" >
+      <section id="trial" class="cta">
         <div class="cta__inner l-inner js-title">
           <h2 class="cta__heading">
             <span class="cta__heading-sub">次は</span>
@@ -820,10 +868,6 @@
                 >)</span
               ></span
             >
-          </div>
-          <div class="footer__company-mail">
-            <span>Email</span>
-            <span>info3@fractal-workout.jp</span>
           </div>
           <div class="footer__company-time">
             <span>営業時間</span>

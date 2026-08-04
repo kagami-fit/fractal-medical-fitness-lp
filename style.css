@@ -427,7 +427,7 @@ textarea {
   }
 }
 .about {
-  background: url(lp-medical-fitness/img/mf-health-consultation.jpg?v=20260705-facility-bg-v1) no-repeat top left/cover;
+  background: url(lp-medical-fitness/img/mf-health-consultation.webp?v=20260705-facility-bg-v1) no-repeat top left/cover;
   overflow: hidden;
   padding-block: 60px 55px;
   position: relative;
@@ -545,6 +545,53 @@ textarea {
     margin-top: 70px;
   }
 }
+
+/* WordPress header logo fix */
+.header__inner {
+  align-items: center !important;
+}
+
+.header__logo {
+  display: block !important;
+  flex: 0 0 auto !important;
+  line-height: 0 !important;
+  margin: 0 !important;
+  max-width: 230px !important;
+  width: min(18vw, 230px) !important;
+}
+
+.header__logo a,
+.header__logo img {
+  display: block !important;
+}
+
+.header__logo img {
+  height: auto !important;
+  max-height: 78px !important;
+  object-fit: contain !important;
+  width: 100% !important;
+}
+
+body.admin-bar .header {
+  top: 32px;
+}
+
+@media screen and (max-width: 782px) {
+  body.admin-bar .header {
+    top: 46px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .header__logo {
+    max-width: 150px !important;
+    width: 150px !important;
+  }
+
+  .header__logo img {
+    max-height: 52px !important;
+  }
+}
 .about__image {
   margin-top: 34px;
 }
@@ -588,12 +635,12 @@ textarea {
   }
 }
 .concept {
-  background: url(lp-medical-fitness/img/mf-facility-window-powerplate.jpg) no-repeat top -100px center/cover;
+  background: url(lp-medical-fitness/img/mf-facility-window-powerplate.webp) no-repeat top -100px center/cover;
   padding-block: 70px 200px;
 }
 @media screen and (min-width: 768px) {
   .concept {
-    background: url(lp-medical-fitness/img/mf-facility-window-powerplate.jpg) no-repeat center center/cover;
+    background: url(lp-medical-fitness/img/mf-facility-window-powerplate.webp) no-repeat center center/cover;
     padding-block: 5vw 200px;
   }
   .concept__wrap {
@@ -704,7 +751,7 @@ textarea {
   }
 }
 .concept__cta-box {
-  margin-top: 50px;
+  margin-top: 16px;
   padding-inline: 15px;
   text-align: center;
 }
@@ -725,12 +772,12 @@ textarea {
   }
 }
 .cta {
-  background: url(lp-medical-fitness/img/mf-facility-window-powerplate.jpg) no-repeat center center/cover;
+  background: url(lp-medical-fitness/img/mf-facility-window-powerplate.webp) no-repeat center center/cover;
   padding-block: 53px 80px;
 }
 @media screen and (min-width: 768px) {
   .cta {
-    background: url(lp-medical-fitness/img/mf-facility-window-powerplate.jpg) no-repeat center center/cover;
+    background: url(lp-medical-fitness/img/mf-facility-window-powerplate.webp) no-repeat center center/cover;
     padding-block: min(10vw, 155px) min(11vw, 155px);
   }
 }
@@ -885,7 +932,7 @@ textarea {
   }
 }
 .feature__heading {
-  background: url(lp-medical-fitness/img/mf-power-plate-guidance.jpg?v=20260705-facility-bg-v1) no-repeat center center/cover;
+  background: url(lp-medical-fitness/img/mf-power-plate-guidance.webp?v=20260705-facility-bg-v1) no-repeat center center/cover;
   color: #fff;
   font-family: "Shippori Mincho", serif;
   letter-spacing: 0.02em;
@@ -895,7 +942,7 @@ textarea {
 }
 @media screen and (min-width: 768px) {
   .feature__heading {
-    background: url(lp-medical-fitness/img/mf-power-plate-guidance.jpg?v=20260705-facility-bg-v1) no-repeat center center/cover;
+    background: url(lp-medical-fitness/img/mf-power-plate-guidance.webp?v=20260705-facility-bg-v1) no-repeat center center/cover;
     display: flex;
     flex-direction: column;
     padding-block: 4.3vw 5vw;
@@ -1211,7 +1258,7 @@ textarea {
   }
 }
 .footer__message {
-  background: url(lp-medical-fitness/img/mf-health-consultation.jpg?v=20260705-facility-bg-v1) no-repeat top left/cover;
+  background: url(lp-medical-fitness/img/mf-health-consultation.webp?v=20260705-facility-bg-v1) no-repeat top left/cover;
   padding-block: 39px 40px;
   position: relative;
   text-align: center;
@@ -1356,40 +1403,13 @@ textarea {
     font-size: clamp(14px, 1.3194444444vw, 20px);
   }
 }
-.footer__company-mail,
 .footer__company-tel,
 .footer__company-time {
   display: flex;
 }
-.footer__company-mail span:nth-child(1),
 .footer__company-tel span:nth-child(1),
 .footer__company-time span:nth-child(1) {
   width: 108px;
-}
-.footer__company-mail {
-  font-family: "Noto Sans", sans-serif;
-  font-size: clamp(14px, 4.2666666667vw, 18px);
-  letter-spacing: 0.02em;
-  margin-top: 10px;
-}
-@media screen and (min-width: 768px) {
-  .footer__company-mail {
-    font-size: clamp(14px, 1.25vw, 18px);
-    margin-top: 8px;
-  }
-}
-.footer__company-mail span:nth-child(2) {
-  font-size: clamp(16px, 4.8vw, 20px);
-}
-@media screen and (max-width: 374px) {
-  .footer__company-mail span:nth-child(2) {
-    font-size: 13px;
-  }
-}
-@media screen and (min-width: 768px) {
-  .footer__company-mail span:nth-child(2) {
-    font-size: clamp(14px, 1.25vw, 18px);
-  }
 }
 .footer__company-time {
   font-size: clamp(14px, 4.2666666667vw, 18px);
@@ -1538,15 +1558,20 @@ textarea {
   }
 }
 .header__logo {
-  width: 19vw;
+  width: clamp(150px, 38vw, 230px);
 }
 .header__logo:hover {
   opacity: 0.8;
 }
+.header__logo img {
+  display: block;
+  height: auto;
+  width: 100%;
+}
 @media screen and (min-width: 768px) {
   .header__logo {
-    max-width: 184px;
-    width: 13vw;
+    max-width: 230px;
+    width: min(18vw, 230px);
   }
 }
 .drawer-icon {
@@ -1836,10 +1861,10 @@ textarea {
   }
 }
 .problem {
-  background: url(lp-medical-fitness/img/mf-health-consultation.jpg?v=20260705-facility-bg-v1) no-repeat top left/cover;
+  background: url(lp-medical-fitness/img/mf-health-consultation.webp?v=20260705-facility-bg-v1) no-repeat top left/cover;
   color: #fff;
   margin-top: -280px;
-  padding-block: 175px 40px;
+  padding-block: 82px 40px;
 }
 @media screen and (min-width: 768px) {
   .problem {
@@ -1849,7 +1874,7 @@ textarea {
 }
 @media screen and (min-width: 1600px) {
   .problem {
-    background: url(lp-medical-fitness/img/mf-health-consultation.jpg?v=20260705-facility-bg-v1) no-repeat top -30px left/cover;
+    background: url(lp-medical-fitness/img/mf-health-consultation.webp?v=20260705-facility-bg-v1) no-repeat top -30px left/cover;
   }
 }
 .problem__heading {
@@ -2019,7 +2044,7 @@ textarea {
   }
 }
 .program {
-  background: url(lp-medical-fitness/img/mf-program-bg-clean.jpg?v=20260705-program-bg-v1) no-repeat center center/cover;
+  background: url(lp-medical-fitness/img/mf-program-bg-clean.webp?v=20260705-program-bg-v1) no-repeat center center/cover;
   padding-block: 48px 60px;
   position: relative;
 }
@@ -2034,7 +2059,7 @@ textarea {
   }
 }
 .program::before {
-  background: url(lp-medical-fitness/img/mf-program-bg-clean.jpg?v=20260705-program-bg-v1) no-repeat top center/100%
+  background: url(lp-medical-fitness/img/mf-program-bg-clean.webp?v=20260705-program-bg-v1) no-repeat top center/100%
     auto;
   content: "";
   height: 700px;
@@ -2045,7 +2070,7 @@ textarea {
 }
 @media screen and (min-width: 768px) {
   .program::before {
-    background: url(lp-medical-fitness/img/mf-program-bg-clean.jpg?v=20260705-program-bg-v1) no-repeat top center/100%
+    background: url(lp-medical-fitness/img/mf-program-bg-clean.webp?v=20260705-program-bg-v1) no-repeat top center/100%
       auto;
     height: 800px;
     width: 100%;
@@ -2276,7 +2301,7 @@ textarea {
   }
 }
 .vision__wrap {
-  background: url(lp-medical-fitness/img/mf-power-plate-guidance.jpg?v=20260705-facility-bg-v1) no-repeat center center/cover;
+  background: url(lp-medical-fitness/img/mf-power-plate-guidance.webp?v=20260705-facility-bg-v1) no-repeat center center/cover;
   margin-top: 26px;
   padding-block: 30px 53px;
   padding-inline: 20px;
@@ -3051,6 +3076,8 @@ body {
   --medical-ink: #102c34;
   --medical-muted: #48646a;
   --medical-blue: #2f7f91;
+  --medical-blue-dark: #245b68;
+  --medical-blue-light: #3e95a4;
   --medical-teal: #6fb6b8;
   --medical-pale: #eef7f8;
   --medical-line: #b9d8dc;
@@ -3063,7 +3090,7 @@ body {
 }
 
 .c-button {
-  background: linear-gradient(180deg, #3e95a4 0%, #245b68 100%) !important;
+  background: linear-gradient(180deg, var(--medical-blue-light) 0%, var(--medical-blue-dark) 100%) !important;
   border-color: #d9edf0 !important;
   box-shadow: 0 16px 36px rgba(16, 44, 52, 0.16);
 }
@@ -3195,7 +3222,7 @@ body {
 }
 
 .footer {
-  background-color: #245b68;
+  background-color: var(--medical-blue-dark);
 }
 
 @media screen and (min-width: 768px) {
@@ -3259,8 +3286,8 @@ body {
   }
 
   .header__logo {
-    max-width: 86px !important;
-    width: 86px !important;
+    max-width: 230px !important;
+    width: min(18vw, 230px) !important;
   }
 
   .fv--image-hero {
@@ -3905,19 +3932,19 @@ body {
 .fv__points li:nth-child(1) {
   background-image:
     linear-gradient(90deg, rgba(255, 255, 255, 0.97) 0%, rgba(255, 255, 255, 0.9) 54%, rgba(255, 255, 255, 0.48) 100%),
-    url(lp-medical-fitness/img/mf-trust-badge-access-bg-v2.jpg?v=20260707-imagegen-badges-v2);
+    url(lp-medical-fitness/img/mf-trust-badge-access-bg-v2.webp?v=20260707-imagegen-badges-v2);
 }
 
 .fv__points li:nth-child(2) {
   background-image:
     linear-gradient(90deg, rgba(255, 255, 255, 0.97) 0%, rgba(255, 255, 255, 0.9) 56%, rgba(255, 255, 255, 0.5) 100%),
-    url(lp-medical-fitness/img/mf-trust-badge-certified-bg-v2.jpg?v=20260707-imagegen-badges-v2);
+    url(lp-medical-fitness/img/mf-trust-badge-certified-bg-v2.webp?v=20260707-imagegen-badges-v2);
 }
 
 .fv__points li:nth-child(3) {
   background-image:
     linear-gradient(90deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.92) 62%, rgba(255, 255, 255, 0.56) 100%),
-    url(lp-medical-fitness/img/mf-trust-badge-prescription-bg-v2.jpg?v=20260707-imagegen-badges-v2);
+    url(lp-medical-fitness/img/mf-trust-badge-prescription-bg-v2.webp?v=20260707-imagegen-badges-v2);
 }
 
 .fv--image-hero .fv__points li {
@@ -4662,7 +4689,7 @@ body {
 }
 
 .fv__generated-picture {
-  aspect-ratio: 941 / 1672;
+  aspect-ratio: 1672 / 941;
   display: block;
   width: 100%;
 }
@@ -4693,13 +4720,14 @@ body {
 }
 
 .fv__generated-cta {
-  border-radius: 18px;
+  border-radius: 0;
   display: block;
-  height: 9.7%;
-  left: 6.6%;
+  height: 100%;
+  inset: 0;
+  left: 0;
   position: absolute;
-  top: 84.9%;
-  width: 86.8%;
+  top: 0;
+  width: 100%;
   z-index: 2;
 }
 
@@ -4718,12 +4746,13 @@ body {
   }
 
   .fv__generated-cta {
-    border-radius: 14px;
-    height: 12.6%;
-    left: 5.4%;
-    top: 77.2%;
-    width: 41.2%;
+    border-radius: 0;
+    height: 100%;
+    left: 0;
+    top: 0;
+    width: 100%;
   }
+
 }
 
 /* Restore classic about section. */
