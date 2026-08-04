@@ -1869,7 +1869,7 @@ body.admin-bar .header {
 @media screen and (min-width: 768px) {
   .problem {
     margin-top: -250px;
-    padding-block: min(24vw, 354px) min(14vw, 220px);
+    padding-block: min(12vw, 177px) min(14vw, 220px);
   }
 }
 @media screen and (min-width: 1600px) {
