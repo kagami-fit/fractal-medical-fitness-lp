@@ -4588,7 +4588,7 @@ body {
 }
 
 .fv__generated-picture {
-  aspect-ratio: 2730 / 1536;
+  aspect-ratio: 1672 / 941;
   display: block;
   width: 100%;
 }
@@ -4637,7 +4637,7 @@ body {
 
 @media screen and (max-width: 767px) {
   .fv__generated-picture {
-    aspect-ratio: 1411 / 2972;
+    aspect-ratio: 864 / 1820;
   }
 }
 
@@ -4647,7 +4647,7 @@ body {
   }
 
   .fv__generated-picture {
-    aspect-ratio: 2730 / 1536;
+    aspect-ratio: 1672 / 941;
   }
 
   .fv__generated-cta {
