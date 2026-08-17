@@ -1200,7 +1200,7 @@ body.admin-bar .header {
   }
 }
 .footer__message {
-  background: var(--medical-blue-dark);
+  background: url(lp-medical-fitness/img/mf-health-consultation.webp?v=20260705-facility-bg-v1) no-repeat top left/cover;
   padding-block: 39px 40px;
   position: relative;
   text-align: center;
@@ -1305,9 +1305,51 @@ body.admin-bar .header {
     line-height: 1.2;
   }
 }
+.footer__company-tel {
+  font-family: "Noto Sans", sans-serif;
+  font-size: clamp(14px, 4.2666666667vw, 18px);
+  letter-spacing: 0.02em;
+  line-height: 1;
+  margin-top: 20px;
+}
+@media screen and (min-width: 768px) {
+  .footer__company-tel {
+    font-size: clamp(16px, 1.25vw, 20px);
+    margin-top: 20px;
+  }
+}
+.footer__company-tel span:nth-child(2) {
+  font-size: clamp(16px, 5.3333333333vw, 22px);
+}
+@media screen and (min-width: 768px) {
+  .footer__company-tel span:nth-child(2) {
+    font-size: clamp(18px, 1.3888888889vw, 22px);
+  }
+}
+.footer__company-tel span .footer__company-tel-small {
+  font-size: clamp(10px, 3.4666666667vw, 14px);
+}
+@media screen and (min-width: 768px) {
+  .footer__company-tel span .footer__company-tel-small {
+    font-size: clamp(14px, 1.1111111111vw, 18px);
+  }
+}
+.footer__company-tel span .footer__company-tel-big {
+  display: inline;
+  font-family: "Noto Sans", sans-serif;
+  font-size: clamp(14px, 4.2666666667vw, 18px);
+  padding-right: 2px;
+}
+@media screen and (min-width: 768px) {
+  .footer__company-tel span .footer__company-tel-big {
+    font-size: clamp(14px, 1.3194444444vw, 20px);
+  }
+}
+.footer__company-tel,
 .footer__company-time {
   display: flex;
 }
+.footer__company-tel span:nth-child(1),
 .footer__company-time span:nth-child(1) {
   width: 108px;
 }
@@ -4633,6 +4675,25 @@ body {
 .fv__generated-cta:focus-visible {
   outline: 3px solid rgba(50, 137, 153, 0.75);
   outline-offset: 3px;
+}
+
+/* Keep the generated hero and the following concept section in normal flow. */
+.fv--generated-hero,
+.fv--generated-hero .fv__hero-frame {
+  height: auto !important;
+  min-height: 0 !important;
+}
+
+.fv__generated-picture,
+.fv__generated-picture img {
+  height: auto !important;
+  min-height: 0 !important;
+}
+
+@media screen and (min-width: 768px) {
+  .fv--generated-hero + .concept .concept__images {
+    top: 0;
+  }
 }
 
 @media screen and (max-width: 767px) {
