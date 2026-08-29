@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Medical Fitness LP 画像一覧</title>
+    <style>
+      :root { color-scheme: light; font-family: Arial, "Noto Sans JP", sans-serif; }
+      * { box-sizing: border-box; }
+      body { margin: 0; background: #f4f8f8; color: #12343b; }
+      header { position: sticky; top: 0; z-index: 2; padding: 20px clamp(16px, 4vw, 48px); background: #0b6571; color: #fff; box-shadow: 0 2px 10px rgba(0,0,0,.15); }
+      h1 { margin: 0 0 6px; font-size: clamp(20px, 3vw, 30px); }
+      header p { margin: 0; font-size: 13px; opacity: .9; }
+      main { width: min(1180px, calc(100% - 32px)); margin: 24px auto 48px; }
+      .notice { margin-bottom: 20px; padding: 14px 16px; border: 1px solid #b8dadd; border-radius: 6px; background: #fff; font-size: 14px; line-height: 1.6; }
+      .notice code { padding: 2px 5px; border-radius: 3px; background: #e9f3f4; }
+      .group { margin: 26px 0 10px; font-size: 18px; color: #0b6571; }
+      .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
+      .card { overflow: hidden; border: 1px solid #c9dfe1; border-radius: 6px; background: #fff; box-shadow: 0 2px 8px rgba(18,52,59,.08); }
+      .thumb { display: block; width: 100%; height: 180px; object-fit: cover; background: #e9f1f2; }
+      .thumb--empty { display: grid; place-items: center; color: #67858a; font-size: 12px; }
+      .body { padding: 12px 14px 14px; }
+      .id { display: inline-block; margin-bottom: 7px; padding: 4px 7px; border-radius: 4px; background: #0b6571; color: #fff; font: 700 12px Arial, sans-serif; }
+      .section { margin: 0 0 5px; color: #52747a; font-size: 12px; }
+      .name { margin: 0; overflow-wrap: anywhere; font-size: 14px; line-height: 1.45; }
+      .path { margin: 8px 0 0; color: #66858a; font: 11px/1.45 ui-monospace, SFMono-Regular, Menlo, monospace; overflow-wrap: anywhere; }
+      .status { padding: 28px 0; color: #52747a; }
+      @media (max-width: 600px) { main { width: min(100% - 20px, 520px); margin-top: 16px; } .grid { grid-template-columns: 1fr; } .thumb { height: 220px; } }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Medical Fitness LP 画像一覧</h1>
+      <p>公開中のMedical Fitness LP（2026年8月版）で使われている画像一覧です。</p>
+    </header>
+    <main>
+      <div class="notice">
+        例：「<code>I-09</code>を変更」「<code>B-02</code>の背景を変更」。<br />
+        IはHTML内の通常画像、BはCSSの背景画像です。画像の差し替え指示は、この番号で指定できます。
+      </div>
+      <p class="status" id="status">画像一覧を読み込んでいます…</p>
+      <section id="images-section" hidden>
+        <h2 class="group">通常画像</h2>
+        <div class="grid" id="images"></div>
+      </section>
+      <section id="backgrounds-section" hidden>
+        <h2 class="group">背景画像</h2>
+        <div class="grid" id="backgrounds"></div>
+      </section>
+    </main>
+    <script>
+      (function () {
+        const root = new URL('.', window.location.href);
+        const images = [
+          ['mf-header-logo-medical-fitness-20260720.webp?v=20260720-logo-v1', 'ヘッダー／ロゴ'],
+          ['mf-fv-main-clean-polished-badges-20260722.webp?v=20260722-clean-polished-badges-v1', 'ファーストビュー／デスクトップ'],
+          ['mf-fv-mobile-current-20260826.png?v=20260826-mobile-fv-v1', 'ファーストビュー／モバイル'],
+          ['mf-trust-badge-access-circle-text.webp?v=20260707-trust-circle-mobile-v1', 'ファーストビュー／信頼バッジ'],
+          ['mf-trust-badge-certified-circle-text.webp?v=20260707-trust-circle-mobile-v1', 'ファーストビュー／信頼バッジ'],
+          ['mf-trust-badge-prescription-circle-text.webp?v=20260707-trust-circle-mobile-v1', 'ファーストビュー／信頼バッジ'],
+          ['mf-health-consultation.webp?v=20260705-facility-bg-v1', 'コンセプト／相談スペース'],
+          ['mf-male-concept-powerplate-active-20260811.webp?v=20260811-selected-powerplate-v2', 'コンセプト／男性クライアント'],
+          ['mf-male-problem-health-numbers-wide-20260811.webp?v=20260811-selected-health-v2', '悩みカード／健診数値'],
+          ['mf-problem-exercise-anxiety-20260712.webp?v=20260712-problem-unified-v1', '悩みカード／運動不安'],
+          ['mf-problem-continuity-selected-20260712.webp?v=20260712-problem-continuity-selected-v1', '悩みカード／継続'],
+          ['mf-counseling-room-unified-20260712.webp?v=20260712-counseling-image-v1', 'About／カウンセリング'],
+          ['mf-health-consultation.webp?v=20260705-facility-bg-v1', 'ビジョン／相談スペース'],
+          ['mf-male-vision-program-planning-20260810.webp?v=20260810-male-mix-v1', 'ビジョン／男性クライアント'],
+          ['mf-feature-reason-01-assessment.webp?v=20260705-feature-reasons-v1', '選ばれる理由01／測定'],
+          ['mf-male-feature-powerplate-active-20260811.webp?v=20260811-selected-powerplate-v2', '選ばれる理由02／低負荷運動'],
+          ['mf-feature-reason-03-documents.webp?v=20260705-feature-reasons-v1', '選ばれる理由03／書類'],
+          ['mf-male-feature-long-term-20260810.webp?v=20260810-male-mix-v1', '選ばれる理由04／長期伴走'],
+          ['mf-male-deduction-documents-20260810.webp?v=20260810-male-mix-v1', '医療費控除／書類確認'],
+          ['mf-facility-reception.webp', 'Private／施設案内'],
+          ['mf-pilates-support.webp?v=20260705-pilates-unify-v1', 'Private／ピラティスサポート'],
+          ['mf-facility-gym-overview.webp', 'Private／施設全景'],
+          ['mf-power-plate-guidance.webp?v=20260705-facility-bg-v1', 'Private／Power Plate'],
+        ];
+        const backgrounds = [
+          ['mf-facility-window-powerplate.webp', 'コンセプト背景'],
+          ['mf-facility-gym-overview.webp', '悩みカード背景'],
+          ['mf-facility-reception.webp', 'About背景'],
+          ['https://fractal-workout.com/wp-content/uploads/2025/09/about_logo.webp', 'Aboutロゴ背景'],
+          ['mf-machine-guidance.webp?v=20260705-facility-bg-v1', '選ばれる理由タイトル背景'],
+          ['mf-program-bg-clean.webp?v=20260705-program-bg-v1', 'プログラム背景'],
+          ['mf-power-plate-guidance.webp?v=20260705-facility-bg-v1', 'ビジョン背景'],
+          ['mf-hero-desktop-photo.webp?v=20260705-facility-bg-v1', 'CTA背景'],
+          ['mf-health-consultation.webp?v=20260705-facility-bg-v1', 'フッター背景'],
+        ];
+        const toRelative = (source) => source.startsWith('http')
+          ? source
+          : new URL(`lp-medical-fitness/img/${source}`, root).href;
+        const card = ({ label, source, section, type }) => {
+          const article = document.createElement('article');
+          article.className = 'card';
+          const image = document.createElement('img');
+          image.className = 'thumb';
+          image.src = toRelative(source);
+          image.alt = '';
+          image.loading = 'lazy';
+          image.onerror = () => { image.remove(); const empty = document.createElement('div'); empty.className = 'thumb thumb--empty'; empty.textContent = '画像を読み込めません'; article.prepend(empty); };
+          const body = document.createElement('div');
+          body.className = 'body';
+          body.innerHTML = `<span class="id">${label}</span><p class="section">${type} / ${section}</p><p class="name">${source.split('/').pop().split('?')[0]}</p><p class="path">lp-medical-fitness/img/${source}</p>`;
+          article.append(image, body);
+          return article;
+        };
+
+        const imageGrid = document.getElementById('images');
+        images.forEach(([source, section], index) => {
+          imageGrid.appendChild(card({ label: `I-${String(index + 1).padStart(2, '0')}`, source, section, type: '通常画像' }));
+        });
+        const backgroundGrid = document.getElementById('backgrounds');
+        backgrounds.forEach(([source, section], index) => backgroundGrid.appendChild(card({ label: `B-${String(index + 1).padStart(2, '0')}`, source, section, type: '背景画像' })));
+        document.getElementById('images-section').hidden = false;
+        document.getElementById('backgrounds-section').hidden = false;
+        document.getElementById('status').remove();
+      })();
+    </script>
+  </body>
+</html>
