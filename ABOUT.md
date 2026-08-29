@@ -15,6 +15,9 @@ FRACTAL MEDICAL FITNESSのLPを、GitHub Pagesで共有・確認できるよう�
 - `index.html`：公開用LP本体
 - `style.css`：公開用スタイル
 - `script.js`：公開用JavaScript
+- `image-inventory.html`：現在画像と変更後画像を組み合わせて、差し替え指示をまとめるボード
+- `image-inventory.css`：画像差し替え指示ボードのスタイル
+- `image-inventory.js`：複数画像の割り当て、指示文・共有URLの生成
 - `lp-medical-fitness/img/`：LPで使う画像素材
 - `ABOUT.md`：この公開用フォルダの説明
 
@@ -32,4 +35,5 @@ python3 -m http.server 8088
 - `index.html`：稼働中。メディカルフィットネスLPの静的公開版
 - `style.css`：稼働中。GitHub Pages用に画像パスを調整済み
 - `script.js`：稼働中。ドロワー・スクロールアニメーション用
+- `image-inventory.html`：稼働中。複数の画像差し替え指示を一括作成・共有可能
 - `lp-medical-fitness/img/`：稼働中。生成画像を同梱済み
