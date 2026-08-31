@@ -1,35 +1,41 @@
-const STORAGE_KEY = 'mf-lp-image-replacement-plan-20260829';
+const STORAGE_KEY = 'mf-lp-image-change-plan-20260831-v2';
 const REVIEWER_KEY = 'mf-lp-image-replacement-reviewer-20260829';
 const PUBLIC_PAGE_URL = 'https://kagami-fit.github.io/fractal-medical-fitness-lp/image-inventory.html';
-const LIVE_LP_URL = 'https://fractal-workout.com/medicalfitness/';
-const LIVE_IMAGE_ROOT = 'https://fractal-workout.com/wp-content/themes/fractal-web/lp-medical-fitness/img/';
+const PUBLIC_SITE_ROOT = 'https://kagami-fit.github.io/fractal-medical-fitness-lp/';
+const CURRENT_LP_URL = 'https://kagami-fit.github.io/fractal-medical-fitness-lp/?v=20260831-selected-v1';
+const TARGET_LP_URL = 'https://fractal-workout.com/medicalfitness/';
 const CURRENT_ROOT = 'lp-medical-fitness/img/';
+const LOCAL_WP_IMAGE_ROOT = '/Users/hayatokagami/⭐FW/fractal-pilates-lp/lp-medical-fitness/img/';
+const LOCAL_GITHUB_ROOT = '/Users/hayatokagami/⭐FW/fractal-pilates-lp/github-pages-medical-fitness/';
+const CANDIDATE_BASE_ROOT = 'lp-medical-fitness/img/mf-replacement-20260828/';
+const CANDIDATE_V2_ROOT = 'lp-medical-fitness/img/mf-replacement-20260828-v2/';
+const CANDIDATE_V3_ROOT = 'lp-medical-fitness/img/mf-replacement-20260828-v3/';
 const CANDIDATE_ROOT = 'lp-medical-fitness/img/mf-replacement-20260828-v4/';
 
 const currentImages = [
   { id: 'I-01', kind: 'image', section: 'ヘッダー', title: 'ロゴ', source: 'mf-header-logo-medical-fitness-20260720.webp?v=20260720-logo-v1' },
   { id: 'I-02', kind: 'image', section: 'ファーストビュー', title: 'デスクトップ版', source: 'mf-fv-main-clean-polished-badges-20260722.webp?v=20260722-clean-polished-badges-v1', hint: 'fv-desktop' },
-  { id: 'I-03', kind: 'image', section: 'ファーストビュー', title: 'モバイル版', source: 'mf-fv-mobile-current-20260826.png?v=20260826-mobile-fv-v1', hint: 'fv-mobile' },
+  { id: 'I-03', kind: 'image', section: 'ファーストビュー', title: 'モバイル表示（専用画像なし）', source: 'mf-fv-main-clean-polished-badges-20260722.webp?v=20260722-clean-polished-badges-v1', hint: 'fv-mobile' },
   { id: 'I-04', kind: 'image', section: 'ファーストビュー', title: '信頼バッジ・アクセス', source: 'mf-trust-badge-access-circle-text.webp?v=20260707-trust-circle-mobile-v1' },
   { id: 'I-05', kind: 'image', section: 'ファーストビュー', title: '信頼バッジ・認定施設', source: 'mf-trust-badge-certified-circle-text.webp?v=20260707-trust-circle-mobile-v1' },
   { id: 'I-06', kind: 'image', section: 'ファーストビュー', title: '信頼バッジ・処方箋', source: 'mf-trust-badge-prescription-circle-text.webp?v=20260707-trust-circle-mobile-v1' },
-  { id: 'I-07', kind: 'image', section: 'コンセプト', title: '相談スペース', source: 'mf-health-consultation.webp?v=20260705-facility-bg-v1', hint: 'c01' },
-  { id: 'I-08', kind: 'image', section: 'コンセプト', title: 'Power Plate運動', source: 'mf-male-concept-powerplate-active-20260811.webp?v=20260811-selected-powerplate-v2', hint: 'c02' },
-  { id: 'I-09', kind: 'image', section: '悩みカード', title: '健診数値', source: 'mf-male-problem-health-numbers-wide-20260811.webp?v=20260811-selected-health-v2', hint: 'p01' },
-  { id: 'I-10', kind: 'image', section: '悩みカード', title: '運動への不安', source: 'mf-problem-exercise-anxiety-20260712.webp?v=20260712-problem-unified-v1', hint: 'p02' },
-  { id: 'I-11', kind: 'image', section: '悩みカード', title: '継続の悩み', source: 'mf-problem-continuity-selected-20260712.webp?v=20260712-problem-continuity-selected-v1', hint: 'p03' },
-  { id: 'I-12', kind: 'image', section: 'About', title: 'カウンセリング', source: 'mf-counseling-room-unified-20260712.webp?v=20260712-counseling-image-v1', hint: 'a01' },
-  { id: 'I-13', kind: 'image', section: 'Vision', title: '相談スペース', source: 'mf-health-consultation.webp?v=20260705-facility-bg-v1', hint: 'v01' },
-  { id: 'I-14', kind: 'image', section: 'Vision', title: 'プログラム設計', source: 'mf-male-vision-program-planning-20260810.webp?v=20260810-male-mix-v1', hint: 'v02' },
-  { id: 'I-15', kind: 'image', section: '選ばれる理由01', title: '測定・評価', source: 'mf-feature-reason-01-assessment.webp?v=20260705-feature-reasons-v1', hint: 'r01' },
-  { id: 'I-16', kind: 'image', section: '選ばれる理由02', title: '低負荷運動', source: 'mf-male-feature-powerplate-active-20260811.webp?v=20260811-selected-powerplate-v2', hint: 'r02' },
-  { id: 'I-17', kind: 'image', section: '選ばれる理由03', title: '必要書類', source: 'mf-feature-reason-03-documents.webp?v=20260705-feature-reasons-v1', hint: 'r03' },
-  { id: 'I-18', kind: 'image', section: '選ばれる理由04', title: '長期伴走', source: 'mf-male-feature-long-term-20260810.webp?v=20260810-male-mix-v1', hint: 'r04' },
-  { id: 'I-19', kind: 'image', section: '医療費控除', title: '書類確認', source: 'mf-male-deduction-documents-20260810.webp?v=20260810-male-mix-v1', hint: 'd01' },
+  { id: 'I-07', kind: 'image', section: 'コンセプト', title: '相談スペース', source: 'mf-selected-20260831/i07-concept-consultation.webp?v=20260831-selected-v1', hint: 'c01' },
+  { id: 'I-08', kind: 'image', section: 'コンセプト', title: 'Power Plate運動', source: 'mf-selected-20260831/i08-concept-powerplate.webp?v=20260831-selected-v1', hint: 'c02' },
+  { id: 'I-09', kind: 'image', section: '悩みカード', title: '健診数値', source: 'mf-selected-20260831/i09-problem-health-numbers.webp?v=20260831-selected-v1', hint: 'p01' },
+  { id: 'I-10', kind: 'image', section: '悩みカード', title: '運動への不安', source: 'mf-selected-20260831/i10-problem-exercise-anxiety.webp?v=20260831-selected-v1', hint: 'p02' },
+  { id: 'I-11', kind: 'image', section: '悩みカード', title: '継続の悩み', source: 'mf-selected-20260831/i11-problem-continuity.webp?v=20260831-selected-v1', hint: 'p03' },
+  { id: 'I-12', kind: 'image', section: 'About', title: 'カウンセリング', source: 'mf-selected-20260831/i12-about-counseling.webp?v=20260831-selected-v1', hint: 'a01' },
+  { id: 'I-13', kind: 'image', section: 'Vision', title: '相談スペース', source: 'mf-selected-20260831/i13-vision-consultation.webp?v=20260831-selected-v1', hint: 'v01' },
+  { id: 'I-14', kind: 'image', section: 'Vision', title: 'プログラム設計', source: 'mf-selected-20260831/i14-vision-program-planning.webp?v=20260831-selected-v1', hint: 'v02' },
+  { id: 'I-15', kind: 'image', section: '選ばれる理由01', title: '測定・評価', source: 'mf-selected-20260831/i15-feature-assessment.webp?v=20260831-selected-v1', hint: 'r01' },
+  { id: 'I-16', kind: 'image', section: '選ばれる理由02', title: '低負荷運動', source: 'mf-selected-20260831/i16-feature-low-load.webp?v=20260831-selected-v1', hint: 'r02' },
+  { id: 'I-17', kind: 'image', section: '選ばれる理由03', title: '必要書類', source: 'mf-selected-20260831/i17-feature-documents.webp?v=20260831-selected-v1', hint: 'r03' },
+  { id: 'I-18', kind: 'image', section: '選ばれる理由04', title: '長期伴走', source: 'mf-selected-20260831/i18-feature-long-term.webp?v=20260831-selected-v1', hint: 'r04' },
+  { id: 'I-19', kind: 'image', section: '医療費控除', title: '書類確認', source: 'mf-selected-20260831/i19-deduction-documents.webp?v=20260831-selected-v1', hint: 'd01' },
   { id: 'I-20', kind: 'image', section: 'Private', title: '施設案内', source: 'mf-facility-reception.webp', hint: 'bg-v4-0106' },
-  { id: 'I-21', kind: 'image', section: 'Private', title: 'ピラティスサポート', source: 'mf-pilates-support.webp?v=20260705-pilates-unify-v1', hint: 'pr02' },
+  { id: 'I-21', kind: 'image', section: 'Private', title: 'ピラティスサポート', source: 'mf-selected-20260831/i21-private-pilates.webp?v=20260831-selected-v1', hint: 'pr02' },
   { id: 'I-22', kind: 'image', section: 'Private', title: '施設全景', source: 'mf-facility-gym-overview.webp', hint: 'bg-v4-0007' },
-  { id: 'I-23', kind: 'image', section: 'Private', title: 'Power Plate', source: 'mf-power-plate-guidance.webp?v=20260705-facility-bg-v1', hint: 'pr04' },
+  { id: 'I-23', kind: 'image', section: 'Private', title: 'Power Plate', source: 'mf-selected-20260831/i23-private-powerplate.webp?v=20260831-selected-v1', hint: 'pr04' },
   { id: 'B-01', kind: 'background', section: 'コンセプト', title: 'セクション背景', source: 'mf-facility-window-powerplate.webp', hint: 'bg-v4-0007' },
   { id: 'B-02', kind: 'background', section: '悩みカード', title: 'セクション背景', source: 'mf-facility-gym-overview.webp', hint: 'bg-v4-0007' },
   { id: 'B-03', kind: 'background', section: 'About', title: 'セクション背景', source: 'mf-facility-reception.webp', hint: 'bg-v4-0106' },
@@ -37,8 +43,8 @@ const currentImages = [
   { id: 'B-05', kind: 'background', section: '選ばれる理由', title: 'タイトル背景', source: 'mf-machine-guidance.webp?v=20260705-facility-bg-v1', hint: 'm01' },
   { id: 'B-06', kind: 'background', section: 'プログラム', title: 'セクション背景', source: 'mf-program-bg-clean.webp?v=20260705-program-bg-v1' },
   { id: 'B-07', kind: 'background', section: 'Vision', title: 'セクション背景', source: 'mf-power-plate-guidance.webp?v=20260705-facility-bg-v1', hint: 'pr04' },
-  { id: 'B-08', kind: 'background', section: 'CTA', title: 'セクション背景', source: 'mf-hero-desktop-photo.webp?v=20260705-facility-bg-v1', hint: 'h01' },
-  { id: 'B-09', kind: 'background', section: 'フッター', title: 'メッセージ背景', source: 'mf-health-consultation.webp?v=20260705-facility-bg-v1', hint: 'ft01' }
+  { id: 'B-08', kind: 'background', section: 'CTA', title: 'セクション背景', source: 'mf-selected-20260831/b08-cta-background.webp?v=20260831-selected-v1', hint: 'h01' },
+  { id: 'B-09', kind: 'background', section: 'フッター', title: 'メッセージ背景', source: 'mf-selected-20260831/b09-footer-background.webp?v=20260831-selected-v1', hint: 'ft01' }
 ];
 
 const candidateDefinitions = [
@@ -84,17 +90,100 @@ const candidateDefinitions = [
   { id: 'ft01-male', filename: 'ft01-footer-contact-male-v4-20260828.png', title: 'フッター背景', section: 'フッター', gender: '男性' }
 ];
 
-const candidates = candidateDefinitions.map(function (candidate) {
-  return Object.assign({}, candidate, {
-    version: 'V4最終',
-    src: CANDIDATE_ROOT + candidate.filename,
-    path: CANDIDATE_ROOT + candidate.filename
+function createCandidate(candidate, options) {
+  const src = options.root + options.filename;
+  return Object.assign({}, candidate, options, {
+    src: src,
+    path: LOCAL_GITHUB_ROOT + src,
+    publicUrl: PUBLIC_SITE_ROOT + src
   });
-}).concat([
-  { id: 'bg-v4-0007', filename: 'bg-0007.jpg', title: '背景・施設ホール', section: '背景素材', gender: '共通', version: 'V4背景', src: CANDIDATE_ROOT + 'backgrounds/bg-0007.jpg', path: CANDIDATE_ROOT + 'backgrounds/bg-0007.jpg' },
-  { id: 'bg-v4-0106', filename: 'bg-0106.jpg', title: '背景・受付', section: '背景素材', gender: '共通', version: 'V4背景', src: CANDIDATE_ROOT + 'backgrounds/bg-0106.jpg', path: CANDIDATE_ROOT + 'backgrounds/bg-0106.jpg' },
-  { id: 'bg-v4-0181', filename: 'bg-0181.jpg', title: '背景・カウンセリング', section: '背景素材', gender: '共通', version: 'V4背景', src: CANDIDATE_ROOT + 'backgrounds/bg-0181.jpg', path: CANDIDATE_ROOT + 'backgrounds/bg-0181.jpg' }
-]);
+}
+
+const finalCandidates = candidateDefinitions.map(function (candidate) {
+  return createCandidate(candidate, {
+    usageId: candidate.id,
+    versionKey: 'v4',
+    version: 'V4最終',
+    root: CANDIDATE_ROOT,
+    filename: candidate.filename
+  });
+});
+
+const firstCandidates = candidateDefinitions.map(function (candidate) {
+  const filename = candidate.filename.replace(
+    '-v4-20260828.png',
+    candidate.gender === '男性' ? '-v2-20260828.png' : '-20260828.png'
+  );
+  return createCandidate(Object.assign({}, candidate, { id: 'base-' + candidate.id }), {
+    usageId: candidate.id,
+    versionKey: 'base',
+    version: '初版',
+    root: CANDIDATE_BASE_ROOT,
+    filename: filename
+  });
+});
+
+const v3Candidates = candidateDefinitions
+  .filter(function (candidate) { return candidate.id === 'c01-female' || candidate.id === 'c01-male'; })
+  .map(function (candidate) {
+    const filename = candidate.filename.replace('-v4-20260828.png', '-v3-20260828.png');
+    return createCandidate(Object.assign({}, candidate, { id: 'v3-' + candidate.id }), {
+      usageId: candidate.id,
+      versionKey: 'v3',
+      version: 'V3',
+      root: CANDIDATE_V3_ROOT,
+      filename: filename
+    });
+  });
+
+const backgroundDefinitions = [
+  { id: 'bg-base-counseling-0181', filename: 'backgrounds/bg-counseling-0181.jpg', title: '背景・カウンセリング', versionKey: 'base', version: '初版', root: CANDIDATE_BASE_ROOT },
+  { id: 'bg-base-hall-0007', filename: 'backgrounds/bg-hall-0007.jpg', title: '背景・施設ホール', versionKey: 'base', version: '初版', root: CANDIDATE_BASE_ROOT },
+  { id: 'bg-base-reception-0106', filename: 'backgrounds/bg-reception-0106.jpg', title: '背景・受付', versionKey: 'base', version: '初版', root: CANDIDATE_BASE_ROOT },
+  { id: 'bg-v2-counseling-0181', filename: 'backgrounds/bg-counseling-0181.jpg', title: '背景・カウンセリング', versionKey: 'v2', version: 'V2背景', root: CANDIDATE_V2_ROOT },
+  { id: 'bg-v2-hall-0007', filename: 'backgrounds/bg-hall-0007.jpg', title: '背景・施設ホール', versionKey: 'v2', version: 'V2背景', root: CANDIDATE_V2_ROOT },
+  { id: 'bg-v2-reception-0106', filename: 'backgrounds/bg-reception-0106.jpg', title: '背景・受付', versionKey: 'v2', version: 'V2背景', root: CANDIDATE_V2_ROOT },
+  { id: 'bg-v3-0007', filename: 'backgrounds/bg-0007.jpg', title: '背景・施設ホール', versionKey: 'v3', version: 'V3背景', root: CANDIDATE_V3_ROOT },
+  { id: 'bg-v3-0106', filename: 'backgrounds/bg-0106.jpg', title: '背景・受付', versionKey: 'v3', version: 'V3背景', root: CANDIDATE_V3_ROOT },
+  { id: 'bg-v3-0181', filename: 'backgrounds/bg-0181.jpg', title: '背景・カウンセリング', versionKey: 'v3', version: 'V3背景', root: CANDIDATE_V3_ROOT },
+  { id: 'bg-v4-0007', filename: 'backgrounds/bg-0007.jpg', title: '背景・施設ホール', versionKey: 'v4', version: 'V4背景', root: CANDIDATE_ROOT },
+  { id: 'bg-v4-0106', filename: 'backgrounds/bg-0106.jpg', title: '背景・受付', versionKey: 'v4', version: 'V4背景', root: CANDIDATE_ROOT },
+  { id: 'bg-v4-0181', filename: 'backgrounds/bg-0181.jpg', title: '背景・カウンセリング', versionKey: 'v4', version: 'V4背景', root: CANDIDATE_ROOT }
+];
+
+const backgroundCandidates = backgroundDefinitions.map(function (background) {
+  return createCandidate({
+    id: background.id,
+    title: background.title,
+    section: '背景素材',
+    gender: '共通'
+  }, Object.assign({ usageId: background.id }, background));
+});
+
+const archiveCandidates = [
+  createCandidate({ id: 'archive-c01-male', title: 'コンセプト・相談（旧アーカイブ）', section: 'アーカイブ', gender: '男性' }, {
+    usageId: 'c01-male', versionKey: 'archive', version: '使用しない旧版', root: CANDIDATE_BASE_ROOT,
+    filename: '_archive-do-not-use/c01-consultation-male-20260828.png'
+  }),
+  createCandidate({ id: 'archive-c02-male', title: 'コンセプト・Power Plate（旧アーカイブ）', section: 'アーカイブ', gender: '男性' }, {
+    usageId: 'c02-male', versionKey: 'archive', version: '使用しない旧版', root: CANDIDATE_BASE_ROOT,
+    filename: '_archive-do-not-use/c02-powerplate-male-20260828.png'
+  })
+];
+
+const referenceCandidates = [
+  createCandidate({ id: 'reference-female-wavy-layers', title: '顔参照・女性', section: '顔参照', gender: '女性' }, {
+    usageId: 'reference-female', versionKey: 'reference', version: '顔参照', root: 'mf-image-selection-board-20260829/reference-faces/',
+    filename: 'customer_female_40_wavy_layers.png'
+  }),
+  createCandidate({ id: 'reference-male-swept-back', title: '顔参照・男性', section: '顔参照', gender: '男性' }, {
+    usageId: 'reference-male', versionKey: 'reference', version: '顔参照', root: 'mf-image-selection-board-20260829/reference-faces/',
+    filename: 'customer_male_45_swept_back.png'
+  })
+];
+
+const candidates = finalCandidates
+  .concat(firstCandidates, v3Candidates, backgroundCandidates, archiveCandidates, referenceCandidates);
 
 const currentById = new Map(currentImages.map(function (item) { return [item.id, item]; }));
 const candidateById = new Map(candidates.map(function (item) { return [item.id, item]; }));
@@ -116,13 +205,29 @@ const candidateFilters = [
   { key: 'all', label: 'すべて' },
   { key: 'female', label: '女性' },
   { key: 'male', label: '男性' },
+  { key: 'v4', label: 'V4最終' },
+  { key: 'base', label: '初版' },
+  { key: 'v3', label: 'V3' },
+  { key: 'v2', label: 'V2背景' },
   { key: 'background', label: '背景素材' },
+  { key: 'reference', label: '顔参照' },
   { key: 'FV', label: 'FV' },
   { key: '悩み', label: '悩み' },
   { key: 'Vision', label: 'Vision' },
   { key: '選ばれる理由', label: '選ばれる理由' },
   { key: 'Private', label: 'Private' }
 ];
+
+const preserveDefinitions = [
+  { key: 'customer', label: 'お客様の顔・同一人物' },
+  { key: 'trainer', label: 'トレーナーの顔・同一人物' },
+  { key: 'composition', label: '画角・構図' },
+  { key: 'background', label: '背景' },
+  { key: 'clothing', label: '衣装・色' },
+  { key: 'ratio', label: '画像の縦横比' }
+];
+
+const defaultPreserveKeys = ['customer', 'trainer', 'ratio'];
 
 const state = {
   changes: new Map(),
@@ -132,6 +237,7 @@ const state = {
   candidateFilter: 'recommended',
   candidateQuery: '',
   activeCurrentId: null,
+  pickerMode: 'replace',
   reviewer: ''
 };
 
@@ -154,6 +260,9 @@ const elements = {
   pickerTitle: document.querySelector('#pickerTitle'),
   pickerTarget: document.querySelector('#pickerTarget'),
   closePicker: document.querySelector('#closePicker'),
+  changeModeTabs: document.querySelector('.change-mode-tabs'),
+  replacePanel: document.querySelector('#replacePanel'),
+  regeneratePanel: document.querySelector('#regeneratePanel'),
   candidateSearch: document.querySelector('#candidateSearch'),
   candidateFilters: document.querySelector('#candidateFilters'),
   candidateGrid: document.querySelector('#candidateGrid'),
@@ -161,6 +270,13 @@ const elements = {
   customLabel: document.querySelector('#customLabel'),
   customPath: document.querySelector('#customPath'),
   applyCustomPath: document.querySelector('#applyCustomPath'),
+  regeneratePreviewImage: document.querySelector('#regeneratePreviewImage'),
+  regeneratePreviewPath: document.querySelector('#regeneratePreviewPath'),
+  regenerateInstruction: document.querySelector('#regenerateInstruction'),
+  preserveOptions: document.querySelector('#preserveOptions'),
+  regenerateFromScratch: document.querySelector('#regenerateFromScratch'),
+  regenerateBasePath: document.querySelector('#regenerateBasePath'),
+  applyRegenerate: document.querySelector('#applyRegenerate'),
   toast: document.querySelector('#toast')
 };
 
@@ -181,11 +297,15 @@ function basename(path) {
 }
 
 function resolveCurrentSource(item) {
-  return /^https?:\/\//.test(item.source) ? item.source : LIVE_IMAGE_ROOT + item.source;
+  return /^https?:\/\//.test(item.source) ? item.source : CURRENT_ROOT + item.source;
 }
 
 function currentDisplayPath(item) {
-  return /^https?:\/\//.test(item.source) ? stripQuery(item.source) : CURRENT_ROOT + stripQuery(item.source);
+  return /^https?:\/\//.test(item.source) ? stripQuery(item.source) : LOCAL_WP_IMAGE_ROOT + stripQuery(item.source);
+}
+
+function currentPublicUrl(item) {
+  return /^https?:\/\//.test(item.source) ? item.source : PUBLIC_SITE_ROOT + CURRENT_ROOT + item.source;
 }
 
 function resolveCustomPreview(path) {
@@ -211,6 +331,38 @@ function replacementDetails(change) {
     };
   }
   return null;
+}
+
+function preserveLabels(keys) {
+  const selected = new Set(Array.isArray(keys) ? keys : []);
+  return preserveDefinitions
+    .filter(function (definition) { return selected.has(definition.key); })
+    .map(function (definition) { return definition.label; });
+}
+
+function regenerateBasePath(item, change) {
+  return change && change.basePath ? change.basePath : currentDisplayPath(item);
+}
+
+function regenerateBasePreview(item, change) {
+  if (change && change.basePath) return resolveCustomPreview(change.basePath) || currentPublicUrl(item);
+  return resolveCurrentSource(item);
+}
+
+function changeDetails(item, change) {
+  if (!change) return null;
+  if (change.kind === 'regenerate') {
+    return {
+      kind: 'regenerate',
+      title: '修正して再生成',
+      filename: '再生成指示あり',
+      src: regenerateBasePreview(item, change),
+      path: regenerateBasePath(item, change),
+      instruction: change.instruction
+    };
+  }
+  const replacement = replacementDetails(change);
+  return replacement ? Object.assign({ kind: 'replace' }, replacement) : null;
 }
 
 function readStoredPlan() {
@@ -243,6 +395,20 @@ function normalizePlan(rawPlan) {
         kind: 'custom',
         path: change.path.trim(),
         label: typeof change.label === 'string' ? change.label.trim() : ''
+      });
+    }
+    if (change.kind === 'regenerate' && typeof change.instruction === 'string' && change.instruction.trim()) {
+      const preserve = Array.isArray(change.preserve)
+        ? change.preserve.filter(function (key) {
+          return preserveDefinitions.some(function (definition) { return definition.key === key; });
+        })
+        : defaultPreserveKeys.slice();
+      normalized.set(currentId, {
+        kind: 'regenerate',
+        instruction: change.instruction.trim(),
+        basePath: typeof change.basePath === 'string' ? change.basePath.trim() : '',
+        preserve: preserve,
+        fromScratch: change.fromScratch !== false
       });
     }
   });
@@ -360,24 +526,26 @@ function brokenImageFallback(image) {
 
 function renderCurrentCard(item) {
   const change = state.changes.get(item.id);
-  const replacement = replacementDetails(change);
-  const replacementImage = replacement && replacement.src
-    ? '<img src="' + escapeHtml(replacement.src) + '" alt="">'
-    : '<div class="replacement-empty">' + (replacement ? '指定済み（プレビューなし）' : '変更後の画像を選択') + '</div>';
-  const replacementCaption = replacement
-    ? escapeHtml(replacement.filename)
+  const details = changeDetails(item, change);
+  const isRegenerate = details && details.kind === 'regenerate';
+  const replacementImage = details && details.src
+    ? '<div class="planned-image-wrap"><img src="' + escapeHtml(details.src) + '" alt="">' +
+      (isRegenerate ? '<span class="regenerate-mark">再生成</span>' : '') + '</div>'
+    : '<div class="replacement-empty">' + (details ? '指定済み（プレビューなし）' : '差し替えまたは再生成を指定') + '</div>';
+  const replacementCaption = details
+    ? escapeHtml(isRegenerate ? details.instruction : details.filename)
     : '未指定';
 
   const card = document.createElement('article');
   card.id = 'current-' + item.id;
-  card.className = 'image-card' + (replacement ? ' is-changed' : '');
+  card.className = 'image-card' + (details ? ' is-changed' : '') + (isRegenerate ? ' is-regenerate' : '');
   card.innerHTML =
     '<header class="card-heading">' +
       '<div class="card-id-block">' +
         '<span class="image-id">' + escapeHtml(item.id) + '</span>' +
         '<span class="card-section">' + escapeHtml(item.section + '／' + item.title) + '</span>' +
       '</div>' +
-      (replacement ? '<span class="changed-mark">変更予定</span>' : '') +
+      (details ? '<span class="changed-mark">' + (isRegenerate ? '再生成予定' : '差し替え予定') + '</span>' : '') +
     '</header>' +
     '<div class="comparison">' +
       '<div class="image-side">' +
@@ -387,14 +555,15 @@ function renderCurrentCard(item) {
       '</div>' +
       '<div class="comparison-arrow" aria-hidden="true">→</div>' +
       '<div class="image-side">' +
-        '<span class="side-label">変更後</span>' +
+        '<span class="side-label">' + (isRegenerate ? '再生成の基準' : '変更後') + '</span>' +
         replacementImage +
-        '<p class="file-caption">' + replacementCaption + '</p>' +
+        '<p class="file-caption" title="' + replacementCaption + '">' + replacementCaption + '</p>' +
       '</div>' +
     '</div>' +
     '<div class="card-actions">' +
-      '<button class="select-replacement" type="button" data-pick="' + escapeHtml(item.id) + '">' + (replacement ? '変更後の画像を選び直す' : '変更後の画像を選ぶ') + '</button>' +
-      (replacement ? '<button class="remove-replacement" type="button" data-remove="' + escapeHtml(item.id) + '" aria-label="' + escapeHtml(item.id) + 'の変更を解除" title="変更を解除">×</button>' : '') +
+      '<button class="select-replacement" type="button" data-pick="' + escapeHtml(item.id) + '">画像を差し替え</button>' +
+      '<button class="select-regenerate" type="button" data-regenerate="' + escapeHtml(item.id) + '">修正して再生成</button>' +
+      (details ? '<button class="remove-replacement" type="button" data-remove="' + escapeHtml(item.id) + '" aria-label="' + escapeHtml(item.id) + 'の変更を解除" title="変更を解除">×</button>' : '') +
     '</div>';
 
   card.querySelectorAll('img').forEach(brokenImageFallback);
@@ -417,21 +586,39 @@ function buildInstructions() {
   if (!changedItems.length) return '';
 
   const lines = [
-    'MF LP画像差し替え指示',
-    '対象：' + LIVE_LP_URL
+    'MF LP画像変更・再生成指示',
+    '基準プレビュー：' + CURRENT_LP_URL,
+    '反映対象：' + TARGET_LP_URL
   ];
 
   if (state.reviewer.trim()) lines.push('確認者：' + state.reviewer.trim());
-  lines.push('', '以下の画像を、それぞれ指定した画像へ変更してください。', '');
+  lines.push('', '以下の画像を、それぞれの指示どおりに更新してください。', '');
 
   changedItems.forEach(function (item, index) {
-    const replacement = replacementDetails(state.changes.get(item.id));
-    lines.push(
-      (index + 1) + '. ' + item.id + '｜' + item.section + '／' + item.title,
-      '   現在：' + currentDisplayPath(item),
-      '   変更後：' + replacement.path,
-      ''
-    );
+    const change = state.changes.get(item.id);
+    lines.push((index + 1) + '. ' + item.id + '｜' + item.section + '／' + item.title);
+    if (change.kind === 'regenerate') {
+      const preserved = preserveLabels(change.preserve);
+      lines.push(
+        '   処理：画像を修正して再生成',
+        '   基準画像：' + regenerateBasePath(item, change),
+        '   修正内容：' + change.instruction.replace(/\n/g, '\n             '),
+        '   変えない要素：' + (preserved.length ? preserved.join('、') : '特になし'),
+        '   生成方法：' + (change.fromScratch
+          ? 'image-gen2で部分上書きせず、画像全体を一から生成する'
+          : 'image-gen2で指示箇所を調整する'),
+        '   生成後：' + item.id + 'の画像として設定',
+        ''
+      );
+    } else {
+      const replacement = replacementDetails(change);
+      lines.push(
+        '   処理：既存画像へ差し替え',
+        '   現在：' + currentDisplayPath(item),
+        '   変更後：' + replacement.path,
+        ''
+      );
+    }
   });
 
   return lines.join('\n').trim();
@@ -448,15 +635,15 @@ function renderPlan() {
   elements.instructionText.value = buildInstructions();
 
   if (!hasChanges) {
-    elements.planList.innerHTML = '<p class="empty-plan">変更後の画像を選ぶと、ここに差し替え内容がまとまります。</p>';
+    elements.planList.innerHTML = '<p class="empty-plan">画像の差し替えまたは再生成内容を指定すると、ここにまとめて表示されます。</p>';
     return;
   }
 
   elements.planList.innerHTML = changedItems.map(function (item) {
-    const replacement = replacementDetails(state.changes.get(item.id));
+    const details = changeDetails(item, state.changes.get(item.id));
     return '<div class="plan-item">' +
       '<button class="summary-link" type="button" data-jump="' + escapeHtml(item.id) + '">' + escapeHtml(item.id) + '</button>' +
-      '<div class="plan-item-copy"><strong>' + escapeHtml(item.section + '／' + item.title) + '</strong><span>→ ' + escapeHtml(replacement.title) + '</span></div>' +
+      '<div class="plan-item-copy"><strong>' + escapeHtml(item.section + '／' + item.title) + '</strong><span>' + (details.kind === 'regenerate' ? '再生成：' : '差し替え：') + escapeHtml(details.kind === 'regenerate' ? details.instruction : details.title) + '</span></div>' +
       '<button class="plan-remove" type="button" data-remove="' + escapeHtml(item.id) + '" aria-label="' + escapeHtml(item.id) + 'の変更を解除" title="変更を解除">×</button>' +
     '</div>';
   }).join('');
@@ -470,7 +657,8 @@ function renderAll() {
 
 function matchesRecommendation(candidate, item) {
   if (!item || !item.hint) return true;
-  return candidate.id === item.hint || candidate.id.startsWith(item.hint + '-') || candidate.id.startsWith(item.hint);
+  const usageId = candidate.usageId || candidate.id;
+  return usageId === item.hint || usageId.startsWith(item.hint + '-') || usageId.startsWith(item.hint);
 }
 
 function candidateMatchesFilter(candidate) {
@@ -479,11 +667,13 @@ function candidateMatchesFilter(candidate) {
     || (state.candidateFilter === 'recommended' && matchesRecommendation(candidate, activeItem))
     || (state.candidateFilter === 'female' && candidate.gender === '女性')
     || (state.candidateFilter === 'male' && candidate.gender === '男性')
+    || candidate.versionKey === state.candidateFilter
     || (state.candidateFilter === 'background' && candidate.section === '背景素材')
+    || (state.candidateFilter === 'reference' && candidate.section === '顔参照')
     || candidate.section === state.candidateFilter;
   const query = state.candidateQuery.trim().toLowerCase();
   const queryMatches = !query
-    || [candidate.title, candidate.filename, candidate.section, candidate.gender].join(' ').toLowerCase().includes(query);
+    || [candidate.title, candidate.filename, candidate.section, candidate.gender, candidate.version].join(' ').toLowerCase().includes(query);
   return filterMatches && queryMatches;
 }
 
@@ -509,6 +699,7 @@ function renderCandidateCard(candidate) {
       '<span class="candidate-tags">' +
         '<span class="candidate-tag">' + escapeHtml(candidate.section) + '</span>' +
         '<span class="candidate-tag' + genderClass + '">' + escapeHtml(candidate.gender) + '</span>' +
+        '<span class="candidate-tag">' + escapeHtml(candidate.version) + '</span>' +
       '</span>' +
       '<strong>' + escapeHtml(candidate.title) + '</strong>' +
       '<code>' + escapeHtml(candidate.filename) + '</code>' +
@@ -524,7 +715,49 @@ function renderCandidates() {
   elements.noCandidateResults.hidden = visibleCandidates.length > 0;
 }
 
-function openPicker(currentId) {
+function renderPreserveOptions(selectedKeys) {
+  const selected = new Set(selectedKeys);
+  elements.preserveOptions.innerHTML = preserveDefinitions.map(function (definition) {
+    return '<label class="preserve-option">' +
+      '<input type="checkbox" value="' + escapeHtml(definition.key) + '"' + (selected.has(definition.key) ? ' checked' : '') + '>' +
+      '<span>' + escapeHtml(definition.label) + '</span>' +
+    '</label>';
+  }).join('');
+}
+
+function updateRegeneratePreview() {
+  const item = currentById.get(state.activeCurrentId);
+  if (!item) return;
+  const basePath = elements.regenerateBasePath.value.trim();
+  const preview = basePath ? resolveCustomPreview(basePath) : resolveCurrentSource(item);
+  elements.regeneratePreviewImage.src = preview || resolveCurrentSource(item);
+  elements.regeneratePreviewPath.textContent = basePath || currentDisplayPath(item);
+}
+
+function prepareRegenerateForm(item) {
+  const change = state.changes.get(item.id);
+  const existingReplacement = change && change.kind !== 'regenerate' ? replacementDetails(change) : null;
+  elements.regenerateInstruction.value = change && change.kind === 'regenerate' ? change.instruction : '';
+  elements.regenerateBasePath.value = change && change.kind === 'regenerate'
+    ? change.basePath
+    : (existingReplacement ? existingReplacement.path : '');
+  elements.regenerateFromScratch.checked = change && change.kind === 'regenerate' ? change.fromScratch : true;
+  renderPreserveOptions(change && change.kind === 'regenerate' ? change.preserve : defaultPreserveKeys);
+  updateRegeneratePreview();
+}
+
+function setPickerMode(mode) {
+  state.pickerMode = mode === 'regenerate' ? 'regenerate' : 'replace';
+  elements.replacePanel.hidden = state.pickerMode !== 'replace';
+  elements.regeneratePanel.hidden = state.pickerMode !== 'regenerate';
+  elements.changeModeTabs.querySelectorAll('[data-picker-mode]').forEach(function (button) {
+    const active = button.dataset.pickerMode === state.pickerMode;
+    button.classList.toggle('is-active', active);
+    button.setAttribute('aria-selected', String(active));
+  });
+}
+
+function openPicker(currentId, mode) {
   const item = currentById.get(currentId);
   if (!item) return;
   state.activeCurrentId = currentId;
@@ -533,9 +766,11 @@ function openPicker(currentId) {
   elements.candidateSearch.value = '';
   elements.customLabel.value = '';
   elements.customPath.value = '';
-  elements.pickerTitle.textContent = currentId + ' の変更後画像を選択';
+  elements.pickerTitle.textContent = currentId + ' の変更内容';
   elements.pickerTarget.textContent = item.section + '／' + item.title;
   renderCandidates();
+  prepareRegenerateForm(item);
+  setPickerMode(mode);
   elements.pickerDialog.showModal();
   document.documentElement.style.overflow = 'hidden';
 }
@@ -568,6 +803,30 @@ function assignCustomPath() {
   closePicker();
   renderAll();
   showToast(targetId + ' の変更後画像を指定しました。続けて別の画像も指定できます。');
+}
+
+function assignRegenerate() {
+  const instruction = elements.regenerateInstruction.value.trim();
+  if (!state.activeCurrentId || !instruction) {
+    showToast('修正したい内容を入力してください。');
+    elements.regenerateInstruction.focus();
+    return;
+  }
+  const preserve = Array.from(elements.preserveOptions.querySelectorAll('input:checked')).map(function (input) {
+    return input.value;
+  });
+  state.changes.set(state.activeCurrentId, {
+    kind: 'regenerate',
+    instruction: instruction,
+    basePath: elements.regenerateBasePath.value.trim(),
+    preserve: preserve,
+    fromScratch: elements.regenerateFromScratch.checked
+  });
+  const targetId = state.activeCurrentId;
+  saveState();
+  closePicker();
+  renderAll();
+  showToast(targetId + ' の再生成指示を追加しました。');
 }
 
 function removeChange(currentId) {
@@ -611,8 +870,10 @@ elements.changedOnly.addEventListener('change', function (event) {
 
 elements.currentGrid.addEventListener('click', function (event) {
   const pickButton = event.target.closest('[data-pick]');
+  const regenerateButton = event.target.closest('[data-regenerate]');
   const removeButton = event.target.closest('[data-remove]');
-  if (pickButton) openPicker(pickButton.dataset.pick);
+  if (pickButton) openPicker(pickButton.dataset.pick, 'replace');
+  if (regenerateButton) openPicker(regenerateButton.dataset.regenerate, 'regenerate');
   if (removeButton) removeChange(removeButton.dataset.remove);
 });
 
@@ -646,6 +907,11 @@ elements.candidateGrid.addEventListener('click', function (event) {
   if (card) assignCatalogCandidate(card.dataset.candidateId);
 });
 
+elements.changeModeTabs.addEventListener('click', function (event) {
+  const button = event.target.closest('[data-picker-mode]');
+  if (button) setPickerMode(button.dataset.pickerMode);
+});
+
 elements.closePicker.addEventListener('click', closePicker);
 elements.pickerDialog.addEventListener('close', function () {
   document.documentElement.style.overflow = '';
@@ -655,6 +921,11 @@ elements.pickerDialog.addEventListener('click', function (event) {
   if (event.target === elements.pickerDialog) closePicker();
 });
 elements.applyCustomPath.addEventListener('click', assignCustomPath);
+elements.applyRegenerate.addEventListener('click', assignRegenerate);
+elements.regenerateBasePath.addEventListener('input', updateRegeneratePreview);
+elements.regenerateInstruction.addEventListener('keydown', function (event) {
+  if ((event.metaKey || event.ctrlKey) && event.key === 'Enter') assignRegenerate();
+});
 elements.customPath.addEventListener('keydown', function (event) {
   if (event.key === 'Enter') assignCustomPath();
 });

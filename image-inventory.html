@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#17343b">
-    <meta name="description" content="FRACTAL MEDICAL FITNESS LPの画像差し替え指示を、現在画像と変更後画像の組み合わせで作成できるボードです。">
-    <title>MF LP画像差し替え指示ボード</title>
+    <meta name="description" content="FRACTAL MEDICAL FITNESS LPの画像差し替えと再生成指示を、複数画像まとめて作成できるボードです。">
+    <title>MF LP画像変更・再生成指示ボード</title>
     <link rel="stylesheet" href="image-inventory.css">
     <script src="image-inventory.js" defer></script>
   </head>
@@ -13,15 +13,15 @@
     <header class="app-header">
       <div class="header-copy">
         <p class="eyebrow">FRACTAL MEDICAL FITNESS</p>
-        <h1>LP画像差し替え指示ボード</h1>
-        <p class="header-description">現在の画像を確認しながら、変更後の画像を選択できます。</p>
+        <h1>LP画像変更・再生成指示ボード</h1>
+        <p class="header-description">公開中のGitHub版を基準に、差し替えと再生成をまとめて指定できます。</p>
       </div>
       <div class="header-actions">
         <label class="reviewer-field" for="reviewerName">
           <span>確認者名</span>
           <input id="reviewerName" type="text" maxlength="30" placeholder="任意">
         </label>
-        <a class="button button-secondary" href="https://fractal-workout.com/medicalfitness/" target="_blank" rel="noreferrer">現在のLPを見る</a>
+        <a class="button button-secondary" href="https://kagami-fit.github.io/fractal-medical-fitness-lp/?v=20260831-selected-v1" target="_blank" rel="noreferrer">基準LPを見る</a>
         <button id="copyShareLink" class="button button-secondary" type="button" disabled>共有リンクをコピー</button>
         <button id="copyInstructions" class="button button-primary" type="button" disabled>指示文をコピー</button>
       </div>
@@ -36,12 +36,12 @@
         <span class="workflow-arrow" aria-hidden="true">→</span>
         <div class="workflow-step">
           <span class="step-number">2</span>
-          <span>変更後の画像を選ぶ</span>
+          <span>差し替え・再生成を指定</span>
         </div>
         <span class="workflow-arrow" aria-hidden="true">→</span>
         <div class="workflow-step">
           <span class="step-number">3</span>
-          <span>指示文をコピーして送る</span>
+          <span>複数件をまとめて送る</span>
         </div>
       </section>
 
@@ -81,7 +81,7 @@
             <strong id="changeCount" class="change-count">0件</strong>
           </div>
           <div id="planList" class="plan-list">
-            <p class="empty-plan">変更後の画像を選ぶと、ここに差し替え内容がまとまります。</p>
+            <p class="empty-plan">画像の差し替えまたは再生成内容を指定すると、ここにまとめて表示されます。</p>
           </div>
           <div class="plan-actions">
             <button id="clearPlan" class="button button-quiet" type="button" disabled>すべて解除</button>
@@ -89,7 +89,7 @@
           </div>
           <label class="instruction-preview" for="instructionText">
             <span>送信用の指示文</span>
-            <textarea id="instructionText" rows="10" readonly placeholder="変更内容を選ぶと自動で作成されます。"></textarea>
+            <textarea id="instructionText" rows="10" readonly placeholder="差し替え・再生成内容を指定すると自動で作成されます。"></textarea>
           </label>
         </aside>
       </div>
@@ -99,41 +99,88 @@
       <div class="picker-shell">
         <header class="picker-header">
           <div>
-            <p class="section-kicker">SELECT REPLACEMENT</p>
-            <h2 id="pickerTitle">変更後の画像を選択</h2>
+            <p class="section-kicker">IMAGE CHANGE</p>
+            <h2 id="pickerTitle">画像の変更方法を選択</h2>
             <p id="pickerTarget" class="picker-target"></p>
           </div>
           <button id="closePicker" class="icon-button" type="button" aria-label="閉じる" title="閉じる">×</button>
         </header>
 
-        <div class="picker-toolbar">
-          <label class="search-field picker-search" for="candidateSearch">
-            <span class="search-symbol" aria-hidden="true">⌕</span>
-            <span class="sr-only">変更後の画像を検索</span>
-            <input id="candidateSearch" type="search" placeholder="候補画像を検索">
-          </label>
-          <div id="candidateFilters" class="filter-tabs" role="tablist" aria-label="候補画像の絞り込み"></div>
-          <a class="all-assets-link" href="mf-image-selection-board-20260829/" target="_blank">全98点の候補一覧を見る →</a>
+        <div class="change-mode-tabs" role="tablist" aria-label="画像の変更方法">
+          <button class="change-mode-tab is-active" type="button" role="tab" aria-selected="true" data-picker-mode="replace">既存画像へ差し替え</button>
+          <button class="change-mode-tab" type="button" role="tab" aria-selected="false" data-picker-mode="regenerate">修正して再生成</button>
         </div>
 
-        <div id="candidateGrid" class="candidate-grid"></div>
-        <p id="noCandidateResults" class="empty-state" hidden>条件に一致する候補がありません。</p>
-
-        <section class="custom-path-section" aria-labelledby="customPathTitle">
-          <div>
-            <h3 id="customPathTitle">別の画像を指定</h3>
-            <p>候補一覧にない画像は、ファイルパスまたはURLで指定できます。</p>
+        <section id="replacePanel" class="picker-panel picker-panel-replace">
+          <div class="picker-toolbar">
+            <label class="search-field picker-search" for="candidateSearch">
+              <span class="search-symbol" aria-hidden="true">⌕</span>
+              <span class="sr-only">変更後の画像を検索</span>
+              <input id="candidateSearch" type="search" placeholder="候補画像を検索">
+            </label>
+            <div id="candidateFilters" class="filter-tabs" role="tablist" aria-label="候補画像の絞り込み"></div>
+            <a class="all-assets-link" href="mf-image-selection-board-20260829/" target="_blank">全98点の候補一覧を見る</a>
           </div>
-          <div class="custom-path-fields">
-            <label for="customLabel">
-              <span>画像名</span>
-              <input id="customLabel" type="text" placeholder="例：Power Plate スクワット案03">
-            </label>
-            <label for="customPath">
-              <span>ファイルパスまたはURL</span>
-              <input id="customPath" type="text" placeholder="/Users/.../image.png または https://...">
-            </label>
-            <button id="applyCustomPath" class="button button-primary" type="button">この画像を指定</button>
+
+          <div id="candidateGrid" class="candidate-grid"></div>
+          <p id="noCandidateResults" class="empty-state" hidden>条件に一致する候補がありません。</p>
+
+          <section class="custom-path-section" aria-labelledby="customPathTitle">
+            <div>
+              <h3 id="customPathTitle">別の画像を指定</h3>
+              <p>候補一覧にない画像は、ファイルパスまたはURLで指定できます。</p>
+            </div>
+            <div class="custom-path-fields">
+              <label for="customLabel">
+                <span>画像名</span>
+                <input id="customLabel" type="text" placeholder="例：Power Plate スクワット案03">
+              </label>
+              <label for="customPath">
+                <span>ファイルパスまたはURL</span>
+                <input id="customPath" type="text" placeholder="/Users/.../image.png または https://...">
+              </label>
+              <button id="applyCustomPath" class="button button-primary" type="button">この画像を指定</button>
+            </div>
+          </section>
+        </section>
+
+        <section id="regeneratePanel" class="picker-panel regenerate-panel" hidden>
+          <div class="regenerate-layout">
+            <div class="regenerate-preview">
+              <span class="side-label">再生成の基準画像</span>
+              <img id="regeneratePreviewImage" src="" alt="">
+              <p id="regeneratePreviewPath" class="file-caption"></p>
+            </div>
+
+            <div class="regenerate-form">
+              <label class="regenerate-field" for="regenerateInstruction">
+                <span>どこをどう直したいか</span>
+                <textarea id="regenerateInstruction" rows="6" placeholder="例：人物は変えず、もう少し引きの画角にする。Power Plate全体とトレーナーの立ち位置が見えるようにする。"></textarea>
+              </label>
+
+              <fieldset class="preserve-fieldset">
+                <legend>変えない要素</legend>
+                <div id="preserveOptions" class="preserve-options"></div>
+              </fieldset>
+
+              <label class="from-scratch-toggle">
+                <input id="regenerateFromScratch" type="checkbox" checked>
+                <span>部分上書きではなく、画像全体を一から生成する</span>
+              </label>
+
+              <div class="base-path-box">
+                <div>
+                  <strong>別画像を基準にする場合</strong>
+                  <p>空欄なら、現在LPに表示されている画像を基準にします。</p>
+                </div>
+                <label class="regenerate-field" for="regenerateBasePath">
+                  <span>基準画像のファイルパスまたはURL</span>
+                  <input id="regenerateBasePath" type="text" placeholder="/Users/.../image.png または https://...">
+                </label>
+              </div>
+
+              <button id="applyRegenerate" class="button button-primary regenerate-submit" type="button">再生成指示に追加</button>
+            </div>
           </div>
         </section>
       </div>
