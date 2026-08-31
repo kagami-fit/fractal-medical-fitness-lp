@@ -2,7 +2,7 @@ const STORAGE_KEY = 'mf-lp-image-change-plan-20260831-v2';
 const REVIEWER_KEY = 'mf-lp-image-replacement-reviewer-20260829';
 const PUBLIC_PAGE_URL = 'https://kagami-fit.github.io/fractal-medical-fitness-lp/image-inventory.html';
 const PUBLIC_SITE_ROOT = 'https://kagami-fit.github.io/fractal-medical-fitness-lp/';
-const CURRENT_LP_URL = 'https://kagami-fit.github.io/fractal-medical-fitness-lp/?v=20260831-selected-v1';
+const CURRENT_LP_URL = 'https://kagami-fit.github.io/fractal-medical-fitness-lp/?v=20260831-regenerated-v1';
 const TARGET_LP_URL = 'https://fractal-workout.com/medicalfitness/';
 const CURRENT_ROOT = 'lp-medical-fitness/img/';
 const LOCAL_WP_IMAGE_ROOT = '/Users/hayatokagami/⭐FW/fractal-pilates-lp/lp-medical-fitness/img/';
@@ -20,30 +20,30 @@ const currentImages = [
   { id: 'I-05', kind: 'image', section: 'ファーストビュー', title: '信頼バッジ・認定施設', source: 'mf-trust-badge-certified-circle-text.webp?v=20260707-trust-circle-mobile-v1' },
   { id: 'I-06', kind: 'image', section: 'ファーストビュー', title: '信頼バッジ・処方箋', source: 'mf-trust-badge-prescription-circle-text.webp?v=20260707-trust-circle-mobile-v1' },
   { id: 'I-07', kind: 'image', section: 'コンセプト', title: '相談スペース', source: 'mf-selected-20260831/i07-concept-consultation.webp?v=20260831-selected-v1', hint: 'c01' },
-  { id: 'I-08', kind: 'image', section: 'コンセプト', title: 'Power Plate運動', source: 'mf-selected-20260831/i08-concept-powerplate.webp?v=20260831-selected-v1', hint: 'c02' },
+  { id: 'I-08', kind: 'image', section: 'コンセプト', title: 'Power Plate運動', source: 'mf-regenerated-20260831/i08-concept-powerplate-v2.webp?v=20260831-regenerated-v1', hint: 'c02' },
   { id: 'I-09', kind: 'image', section: '悩みカード', title: '健診数値', source: 'mf-selected-20260831/i09-problem-health-numbers.webp?v=20260831-selected-v1', hint: 'p01' },
   { id: 'I-10', kind: 'image', section: '悩みカード', title: '運動への不安', source: 'mf-selected-20260831/i10-problem-exercise-anxiety.webp?v=20260831-selected-v1', hint: 'p02' },
   { id: 'I-11', kind: 'image', section: '悩みカード', title: '継続の悩み', source: 'mf-selected-20260831/i11-problem-continuity.webp?v=20260831-selected-v1', hint: 'p03' },
   { id: 'I-12', kind: 'image', section: 'About', title: 'カウンセリング', source: 'mf-selected-20260831/i12-about-counseling.webp?v=20260831-selected-v1', hint: 'a01' },
   { id: 'I-13', kind: 'image', section: 'Vision', title: '相談スペース', source: 'mf-selected-20260831/i13-vision-consultation.webp?v=20260831-selected-v1', hint: 'v01' },
   { id: 'I-14', kind: 'image', section: 'Vision', title: 'プログラム設計', source: 'mf-selected-20260831/i14-vision-program-planning.webp?v=20260831-selected-v1', hint: 'v02' },
-  { id: 'I-15', kind: 'image', section: '選ばれる理由01', title: '測定・評価', source: 'mf-selected-20260831/i15-feature-assessment.webp?v=20260831-selected-v1', hint: 'r01' },
-  { id: 'I-16', kind: 'image', section: '選ばれる理由02', title: '低負荷運動', source: 'mf-selected-20260831/i16-feature-low-load.webp?v=20260831-selected-v1', hint: 'r02' },
+  { id: 'I-15', kind: 'image', section: '選ばれる理由01', title: '測定・評価', source: 'mf-regenerated-20260831/i15-feature-assessment-v2.webp?v=20260831-regenerated-v1', hint: 'r01' },
+  { id: 'I-16', kind: 'image', section: '選ばれる理由02', title: '低負荷運動', source: 'mf-regenerated-20260831/i16-feature-low-load-v2.webp?v=20260831-regenerated-v1', hint: 'r02' },
   { id: 'I-17', kind: 'image', section: '選ばれる理由03', title: '必要書類', source: 'mf-selected-20260831/i17-feature-documents.webp?v=20260831-selected-v1', hint: 'r03' },
   { id: 'I-18', kind: 'image', section: '選ばれる理由04', title: '長期伴走', source: 'mf-selected-20260831/i18-feature-long-term.webp?v=20260831-selected-v1', hint: 'r04' },
-  { id: 'I-19', kind: 'image', section: '医療費控除', title: '書類確認', source: 'mf-selected-20260831/i19-deduction-documents.webp?v=20260831-selected-v1', hint: 'd01' },
+  { id: 'I-19', kind: 'image', section: '医療費控除', title: '書類確認', source: 'mf-regenerated-20260831/i19-deduction-documents-v2.webp?v=20260831-regenerated-v1', hint: 'd01' },
   { id: 'I-20', kind: 'image', section: 'Private', title: '施設案内', source: 'mf-facility-reception.webp', hint: 'bg-v4-0106' },
-  { id: 'I-21', kind: 'image', section: 'Private', title: 'ピラティスサポート', source: 'mf-selected-20260831/i21-private-pilates.webp?v=20260831-selected-v1', hint: 'pr02' },
+  { id: 'I-21', kind: 'image', section: 'Private', title: 'ピラティスサポート', source: 'mf-regenerated-20260831/i21-private-pilates-v2.webp?v=20260831-regenerated-v1', hint: 'pr02' },
   { id: 'I-22', kind: 'image', section: 'Private', title: '施設全景', source: 'mf-facility-gym-overview.webp', hint: 'bg-v4-0007' },
-  { id: 'I-23', kind: 'image', section: 'Private', title: 'Power Plate', source: 'mf-selected-20260831/i23-private-powerplate.webp?v=20260831-selected-v1', hint: 'pr04' },
+  { id: 'I-23', kind: 'image', section: 'Private', title: 'Power Plate', source: 'mf-regenerated-20260831/i23-private-powerplate-v2.webp?v=20260831-regenerated-v1', hint: 'pr04' },
   { id: 'B-01', kind: 'background', section: 'コンセプト', title: 'セクション背景', source: 'mf-facility-window-powerplate.webp', hint: 'bg-v4-0007' },
   { id: 'B-02', kind: 'background', section: '悩みカード', title: 'セクション背景', source: 'mf-facility-gym-overview.webp', hint: 'bg-v4-0007' },
   { id: 'B-03', kind: 'background', section: 'About', title: 'セクション背景', source: 'mf-facility-reception.webp', hint: 'bg-v4-0106' },
   { id: 'B-04', kind: 'background', section: 'About', title: 'ロゴ背景', source: 'https://fractal-workout.com/wp-content/uploads/2025/09/about_logo.webp' },
-  { id: 'B-05', kind: 'background', section: '選ばれる理由', title: 'タイトル背景', source: 'mf-machine-guidance.webp?v=20260705-facility-bg-v1', hint: 'm01' },
+  { id: 'B-05', kind: 'background', section: '選ばれる理由', title: 'タイトル背景', source: 'mf-regenerated-20260831/b05-feature-reasons-background-v2.webp?v=20260831-regenerated-v1', hint: 'm01' },
   { id: 'B-06', kind: 'background', section: 'プログラム', title: 'セクション背景', source: 'mf-program-bg-clean.webp?v=20260705-program-bg-v1' },
   { id: 'B-07', kind: 'background', section: 'Vision', title: 'セクション背景', source: 'mf-power-plate-guidance.webp?v=20260705-facility-bg-v1', hint: 'pr04' },
-  { id: 'B-08', kind: 'background', section: 'CTA', title: 'セクション背景', source: 'mf-selected-20260831/b08-cta-background.webp?v=20260831-selected-v1', hint: 'h01' },
+  { id: 'B-08', kind: 'background', section: 'CTA', title: 'セクション背景', source: 'mf-regenerated-20260831/b08-cta-background-v2.webp?v=20260831-regenerated-v1', hint: 'h01' },
   { id: 'B-09', kind: 'background', section: 'フッター', title: 'メッセージ背景', source: 'mf-selected-20260831/b09-footer-background.webp?v=20260831-selected-v1', hint: 'ft01' }
 ];
 
