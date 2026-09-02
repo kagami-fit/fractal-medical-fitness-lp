@@ -60,6 +60,8 @@ jQuery("#js-drawer-icon").on("click", function (e) {
       "(prefers-reduced-motion: reduce)"
     ).matches;
     var defaultOrder = [];
+    var galleryVisible = false;
+    var galleryObserver = null;
 
     slides.forEach(function (slide, i) {
       var id = String(i + 1);
@@ -114,6 +116,31 @@ jQuery("#js-drawer-icon").on("click", function (e) {
       );
     }
 
+    function prioritizeCurrentImage() {
+      var image = slides[current] ? slides[current].querySelector("img") : null;
+      if (!image) return;
+      image.loading = "eager";
+      image.setAttribute("fetchpriority", "high");
+    }
+
+    function watchGalleryVisibility() {
+      if (!("IntersectionObserver" in window)) {
+        galleryVisible = true;
+        prioritizeCurrentImage();
+        return;
+      }
+      galleryObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          galleryVisible = true;
+          prioritizeCurrentImage();
+          galleryObserver.disconnect();
+          start();
+        });
+      }, { rootMargin: "800px 0px" });
+      galleryObserver.observe(gallery);
+    }
+
     function show(index) {
       current = (index + slides.length) % slides.length;
       slides.forEach(function (slide, i) {
@@ -126,6 +153,7 @@ jQuery("#js-drawer-icon").on("click", function (e) {
         dot.classList.toggle("is-active", active);
         dot.setAttribute("aria-selected", active ? "true" : "false");
       });
+      if (galleryVisible) prioritizeCurrentImage();
     }
 
     function formatEditorPosition(index) {
@@ -197,12 +225,18 @@ jQuery("#js-drawer-icon").on("click", function (e) {
       editorGrid.innerHTML = "";
       slides.forEach(function (slide, index) {
         var id = slide.getAttribute("data-slide-id");
-        var source = slide.querySelector("img");
+        var sourceImage = slide.querySelector("img");
+        var sourcePicture = slide.querySelector("picture");
         var item = document.createElement("div");
         var header = document.createElement("div");
         var position = document.createElement("span");
         var previewButton = document.createElement("button");
-        var previewImage = source.cloneNode(true);
+        var previewMedia = sourcePicture
+          ? sourcePicture.cloneNode(true)
+          : sourceImage.cloneNode(true);
+        var previewImage = sourcePicture
+          ? previewMedia.querySelector("img")
+          : previewMedia;
         var label = document.createElement("span");
         var description = document.createElement("span");
         var handle = document.createElement("button");
@@ -225,12 +259,13 @@ jQuery("#js-drawer-icon").on("click", function (e) {
         previewButton.type = "button";
         previewButton.setAttribute("aria-label", "画像" + id + "を表示");
         previewButton.title = "クリックで表示";
-        previewImage.loading = "eager";
-        previewButton.appendChild(previewImage);
+        previewImage.loading = "lazy";
+        previewImage.removeAttribute("fetchpriority");
+        previewButton.appendChild(previewMedia);
         label.className = "facility-slideshow__editor-label";
         label.textContent = "画像" + id;
         description.className = "facility-slideshow__editor-description";
-        description.textContent = source.getAttribute("alt") || "施設画像";
+        description.textContent = sourceImage.getAttribute("alt") || "施設画像";
         handle.className = "facility-slideshow__editor-handle";
         handle.type = "button";
         handle.textContent = "↕";
@@ -368,7 +403,6 @@ jQuery("#js-drawer-icon").on("click", function (e) {
       var orderedSlides = [];
       var orderedDots = [];
       var dotContainer = dots[0] ? dots[0].parentNode : null;
-      var firstImage = null;
 
       slides.forEach(function (slide) {
         slideById[slide.getAttribute("data-slide-id")] = slide;
@@ -390,11 +424,6 @@ jQuery("#js-drawer-icon").on("click", function (e) {
       }
       slides = orderedSlides;
       dots = orderedDots;
-      firstImage = slides[0] ? slides[0].querySelector("img") : null;
-      if (firstImage) {
-        firstImage.loading = "eager";
-        firstImage.setAttribute("fetchpriority", "high");
-      }
       show(0);
       renderEditor();
       if (shouldUpdateUrl) updateOrderUrl();
@@ -408,7 +437,7 @@ jQuery("#js-drawer-icon").on("click", function (e) {
     }
 
     function start() {
-      if (reducedMotion) return;
+      if (reducedMotion || !galleryVisible) return;
       stop();
       timer = window.setInterval(function () {
         show(current + 1);
@@ -480,6 +509,7 @@ jQuery("#js-drawer-icon").on("click", function (e) {
       if (!gallery.contains(document.activeElement)) start();
     });
     show(0);
+    watchGalleryVisibility();
     start();
   });
 })();

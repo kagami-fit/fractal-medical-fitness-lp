@@ -583,6 +583,12 @@ textarea {
   z-index: 1;
 }
 
+.facility-slideshow__slide picture {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
 .facility-slideshow__slide img {
   display: block;
   height: 100%;
@@ -833,6 +839,11 @@ textarea {
   margin-top: 8px;
   padding: 0;
   position: relative;
+  width: 100%;
+}
+
+.facility-slideshow__editor-preview picture {
+  display: block;
   width: 100%;
 }
 
