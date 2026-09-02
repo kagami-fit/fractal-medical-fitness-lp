@@ -22,7 +22,7 @@
     />
     <link rel="stylesheet" href="https://use.typekit.net/moa2hxx.css" />
     <!-- CSS読込み -->
-    <link rel="stylesheet" href="style.css?v=20260902-facility-editor-v3"/>
+    <link rel="stylesheet" href="style.css?v=20260902-facility-editor-v4"/>
 
 	<style>
       .header__inner {
@@ -72,77 +72,75 @@
       }
 
       .concept {
-            background: url('lp-medical-fitness/img/mf-facility-window-powerplate.webp') no-repeat top -100px center/cover;
+            background: var(--mf-bg-image, none) no-repeat top -100px center/cover;
           }
         @media screen and (min-width: 768px) {
           .concept {
-            background: url('lp-medical-fitness/img/mf-facility-window-powerplate.webp') no-repeat center center/cover;
+            background: var(--mf-bg-image, none) no-repeat center center/cover;
           }
         }
 
       .problem {
-          background: url('lp-medical-fitness/img/mf-facility-gym-overview.webp') no-repeat top left/cover;
+          background: var(--mf-bg-image, none) no-repeat top left/cover;
         }
         @media screen and (min-width: 1600px) {
           .problem {
-            background: url('lp-medical-fitness/img/mf-facility-gym-overview.webp') no-repeat top -30px left/cover;
+            background: var(--mf-bg-image, none) no-repeat top -30px left/cover;
           }
         }
 
       .about {
-          background: url('lp-medical-fitness/img/mf-facility-reception.webp') no-repeat top left/cover;
+          background: var(--mf-bg-image, none) no-repeat top left/cover;
         }
 
       .about__inner::before {
-        background: url('https://fractal-workout.com/wp-content/uploads/2025/09/about_logo.webp') no-repeat top left/57vw auto;
+        background: var(--mf-bg-before-image, none) no-repeat top left/57vw auto;
       }
       @media screen and (min-width: 768px) {
         .about__inner::before {
-          background: url('https://fractal-workout.com/wp-content/uploads/2025/09/about_logo.webp') no-repeat top left / min(36vw, 600px) auto;
+          background: var(--mf-bg-before-image, none) no-repeat top left / min(36vw, 600px) auto;
         }
       }
 
 
       .feature__heading {
-            background: url('lp-medical-fitness/img/mf-regenerated-20260831/b05-feature-reasons-background-v2.webp?v=20260831-regenerated-v1') no-repeat center center/cover ;
+            background: var(--mf-bg-image, none) no-repeat center center/cover;
           }
         @media screen and (min-width: 768px) {
           .feature__heading {
-            background: url('lp-medical-fitness/img/mf-regenerated-20260831/b05-feature-reasons-background-v2.webp?v=20260831-regenerated-v1') no-repeat center center/cover ;
+            background: var(--mf-bg-image, none) no-repeat center center/cover;
           }
         }
 
       .program {
-          background: url('lp-medical-fitness/img/mf-program-bg-clean.webp?v=20260705-program-bg-v1') no-repeat center center/cover;
+          background: var(--mf-bg-image, none) no-repeat center center/cover;
         }
 
       .program::before {
-          background: url('lp-medical-fitness/img/mf-program-bg-clean.webp?v=20260705-program-bg-v1') no-repeat top center/100%
-            auto;
+          background: var(--mf-bg-image, none) no-repeat top center/100% auto;
         }
         @media screen and (min-width: 768px) {
           .program::before {
-            background: url('lp-medical-fitness/img/mf-program-bg-clean.webp?v=20260705-program-bg-v1') no-repeat top center/100%
-              auto;
+            background: var(--mf-bg-image, none) no-repeat top center/100% auto;
 
           }
         }
 
       .vision__wrap {
-        background: url('lp-medical-fitness/img/mf-power-plate-guidance.webp?v=20260705-facility-bg-v1') no-repeat center center/cover;
+        background: var(--mf-bg-image, none) no-repeat center center/cover;
         }
 
       .cta {
-            background: url('lp-medical-fitness/img/mf-regenerated-20260831/b08-cta-background-v2.webp?v=20260831-regenerated-v1') no-repeat center center/cover ;
+            background: var(--mf-bg-image, none) no-repeat center center/cover;
           }
         @media screen and (min-width: 768px) {
           .cta {
-            background: url('lp-medical-fitness/img/mf-regenerated-20260831/b08-cta-background-v2.webp?v=20260831-regenerated-v1') no-repeat center center/cover ;
+            background: var(--mf-bg-image, none) no-repeat center center/cover;
           }
         }
 
       .footer__message {
-          background: url('lp-medical-fitness/img/mf-selected-20260831/b09-footer-background.webp?v=20260831-selected-v1') no-repeat top left/cover;
+          background: var(--mf-bg-image, none) no-repeat top left/cover;
         }
     </style>
   </head>
@@ -290,7 +288,10 @@
         </div>
       </div>
       <!-- concept -->
-      <div class="concept">
+      <div
+        class="concept"
+        data-lazy-bg="lp-medical-fitness/img/mf-facility-window-powerplate.webp"
+      >
         <div class="concept__inner">
           <div class="concept__wrap">
             <div class="concept__message animated__fadeIn --delay0">
@@ -342,7 +343,10 @@
         </div>
       </div>
       <!-- problem -->
-      <section class="problem">
+      <section
+        class="problem"
+        data-lazy-bg="lp-medical-fitness/img/mf-facility-gym-overview.webp"
+      >
         <div class="problem__inner l-inner">
           <h2 class="problem__heading js-title">
             <span class="problem__heading-top">その健診結果や不調、</span>
@@ -408,7 +412,11 @@
         </div>
       </section>
       <!-- about -->
-      <section class="about">
+      <section
+        class="about"
+        data-lazy-bg="lp-medical-fitness/img/mf-facility-reception.webp"
+        data-lazy-bg-before="https://fractal-workout.com/wp-content/uploads/2025/09/about_logo.webp"
+      >
         <div class="about__inner">
           <h2 class="about__heading js-title">
             <span class="about__heading-top01">そんな方のための</span>
@@ -449,7 +457,10 @@
               それは、検査数値だけでなく、<br />体力・睡眠・気分まで整い、<br />毎日を安心して動けること。
             </p>
           </div>
-          <div class="vision__wrap animated__fadeIn --delay0">
+          <div
+            class="vision__wrap animated__fadeIn --delay0"
+            data-lazy-bg="lp-medical-fitness/img/mf-power-plate-guidance.webp?v=20260705-facility-bg-v1"
+          >
             <div class="vision__content">
               <div class="vision__content-wrap">
                 <div class="vision__content-box vision__box">
@@ -521,7 +532,10 @@
       <!-- feature -->
       <section id="feature" class="feature">
         <div class="feature__inner">
-          <h2 class="feature__heading js-title">
+          <h2
+            class="feature__heading js-title"
+            data-lazy-bg="lp-medical-fitness/img/mf-regenerated-20260831/b05-feature-reasons-background-v2.webp?v=20260831-regenerated-v1"
+          >
             <span class="feature__heading-top"
               >FRACTAL MEDICAL FITNESSが<br />選ばれる</span
             >
@@ -637,7 +651,11 @@
         </div>
       </section>
       <!-- program -->
-      <section id="program" class="program">
+      <section
+        id="program"
+        class="program"
+        data-lazy-bg="lp-medical-fitness/img/mf-program-bg-clean.webp?v=20260705-program-bg-v1"
+      >
         <div class="program__title">
           <span class="program__title-text">MEDICAL PROGRAM</span>
         </div>
@@ -795,11 +813,11 @@
                 <figure class="facility-slideshow__slide is-active">
                   <picture>
                     <source
-                      srcset="lp-medical-fitness/img/mf-facility-slideshow-20260901/facility-01-2u3a0010.webp?v=20260902-facility-webp-v1"
+                      data-srcset="lp-medical-fitness/img/mf-facility-slideshow-20260901/facility-01-2u3a0010.webp?v=20260902-facility-webp-v1"
                       type="image/webp"
                     />
                   <img
-                    src="lp-medical-fitness/img/mf-facility-slideshow-20260901/facility-01-2u3a0010.jpg?v=20260901-facility-slideshow-v1"
+                    data-src="lp-medical-fitness/img/mf-facility-slideshow-20260901/facility-01-2u3a0010.jpg?v=20260901-facility-slideshow-v1"
                     alt="施設内のトレーニングスペース"
                     width="1575"
                     height="1050"
@@ -811,11 +829,11 @@
                 <figure class="facility-slideshow__slide">
                   <picture>
                     <source
-                      srcset="lp-medical-fitness/img/mf-facility-slideshow-20260901/facility-02-2u3a0025.webp?v=20260902-facility-webp-v1"
+                      data-srcset="lp-medical-fitness/img/mf-facility-slideshow-20260901/facility-02-2u3a0025.webp?v=20260902-facility-webp-v1"
                       type="image/webp"
                     />
                   <img
-                    src="lp-medical-fitness/img/mf-facility-slideshow-20260901/facility-02-2u3a0025.jpg?v=20260901-facility-slideshow-v1"
+                    data-src="lp-medical-fitness/img/mf-facility-slideshow-20260901/facility-02-2u3a0025.jpg?v=20260901-facility-slideshow-v1"
                     alt="施設内の運動エリア"
                     width="1890"
                     height="1260"
@@ -827,11 +845,11 @@
                 <figure class="facility-slideshow__slide">
                   <picture>
                     <source
-                      srcset="lp-medical-fitness/img/mf-facility-slideshow-20260901/facility-03-2u3a0031.webp?v=20260902-facility-webp-v1"
+                      data-srcset="lp-medical-fitness/img/mf-facility-slideshow-20260901/facility-03-2u3a0031.webp?v=20260902-facility-webp-v1"
                       type="image/webp"
                     />
                   <img
-                    src="lp-medical-fitness/img/mf-facility-slideshow-20260901/facility-03-2u3a0031.jpg?v=20260901-facility-slideshow-v1"
+                    data-src="lp-medical-fitness/img/mf-facility-slideshow-20260901/facility-03-2u3a0031.jpg?v=20260901-facility-slideshow-v1"
                     alt="施設内のパーソナルトレーニングスペース"
                     width="1890"
                     height="1260"
@@ -843,11 +861,11 @@
                 <figure class="facility-slideshow__slide">
                   <picture>
                     <source
-                      srcset="lp-medical-fitness/img/mf-facility-slideshow-20260901/facility-05-2u3a0082.webp?v=20260902-facility-webp-v1"
+                      data-srcset="lp-medical-fitness/img/mf-facility-slideshow-20260901/facility-05-2u3a0082.webp?v=20260902-facility-webp-v1"
                       type="image/webp"
                     />
                   <img
-                    src="lp-medical-fitness/img/mf-facility-slideshow-20260901/facility-05-2u3a0082.jpg?v=20260901-facility-slideshow-v1"
+                    data-src="lp-medical-fitness/img/mf-facility-slideshow-20260901/facility-05-2u3a0082.jpg?v=20260901-facility-slideshow-v1"
                     alt="施設内のコンディショニングスペース"
                     width="1732"
                     height="1155"
@@ -859,11 +877,11 @@
                 <figure class="facility-slideshow__slide">
                   <picture>
                     <source
-                      srcset="lp-medical-fitness/img/mf-facility-slideshow-20260901/facility-06-2u3a0100.webp?v=20260902-facility-webp-v1"
+                      data-srcset="lp-medical-fitness/img/mf-facility-slideshow-20260901/facility-06-2u3a0100.webp?v=20260902-facility-webp-v1"
                       type="image/webp"
                     />
                   <img
-                    src="lp-medical-fitness/img/mf-facility-slideshow-20260901/facility-06-2u3a0100.jpg?v=20260901-facility-slideshow-v1"
+                    data-src="lp-medical-fitness/img/mf-facility-slideshow-20260901/facility-06-2u3a0100.jpg?v=20260901-facility-slideshow-v1"
                     alt="施設内のトレーニングマシン"
                     width="1732"
                     height="1155"
@@ -875,11 +893,11 @@
                 <figure class="facility-slideshow__slide">
                   <picture>
                     <source
-                      srcset="lp-medical-fitness/img/mf-facility-slideshow-20260901/facility-07-2u3a0058.webp?v=20260902-facility-webp-v1"
+                      data-srcset="lp-medical-fitness/img/mf-facility-slideshow-20260901/facility-07-2u3a0058.webp?v=20260902-facility-webp-v1"
                       type="image/webp"
                     />
                   <img
-                    src="lp-medical-fitness/img/mf-facility-slideshow-20260901/facility-07-2u3a0058.jpg?v=20260901-facility-slideshow-v1"
+                    data-src="lp-medical-fitness/img/mf-facility-slideshow-20260901/facility-07-2u3a0058.jpg?v=20260901-facility-slideshow-v1"
                     alt="清潔感のある施設内"
                     width="1732"
                     height="1155"
@@ -891,11 +909,11 @@
                 <figure class="facility-slideshow__slide">
                   <picture>
                     <source
-                      srcset="lp-medical-fitness/img/mf-facility-slideshow-20260901/facility-08-2u3a0089.webp?v=20260902-facility-webp-v1"
+                      data-srcset="lp-medical-fitness/img/mf-facility-slideshow-20260901/facility-08-2u3a0089.webp?v=20260902-facility-webp-v1"
                       type="image/webp"
                     />
                   <img
-                    src="lp-medical-fitness/img/mf-facility-slideshow-20260901/facility-08-2u3a0089.jpg?v=20260901-facility-slideshow-v1"
+                    data-src="lp-medical-fitness/img/mf-facility-slideshow-20260901/facility-08-2u3a0089.jpg?v=20260901-facility-slideshow-v1"
                     alt="施設内のトレーニング環境"
                     width="1732"
                     height="1155"
@@ -907,11 +925,11 @@
                 <figure class="facility-slideshow__slide">
                   <picture>
                     <source
-                      srcset="lp-medical-fitness/img/mf-facility-slideshow-20260901/facility-09-2u3a0106.webp?v=20260902-facility-webp-v1"
+                      data-srcset="lp-medical-fitness/img/mf-facility-slideshow-20260901/facility-09-2u3a0106.webp?v=20260902-facility-webp-v1"
                       type="image/webp"
                     />
                   <img
-                    src="lp-medical-fitness/img/mf-facility-slideshow-20260901/facility-09-2u3a0106.jpg?v=20260901-facility-slideshow-v1"
+                    data-src="lp-medical-fitness/img/mf-facility-slideshow-20260901/facility-09-2u3a0106.jpg?v=20260901-facility-slideshow-v1"
                     alt="施設内の運動スペース"
                     width="1890"
                     height="1260"
@@ -923,11 +941,11 @@
                 <figure class="facility-slideshow__slide">
                   <picture>
                     <source
-                      srcset="lp-medical-fitness/img/mf-facility-slideshow-20260901/facility-10-2u3a0181.webp?v=20260902-facility-webp-v1"
+                      data-srcset="lp-medical-fitness/img/mf-facility-slideshow-20260901/facility-10-2u3a0181.webp?v=20260902-facility-webp-v1"
                       type="image/webp"
                     />
                   <img
-                    src="lp-medical-fitness/img/mf-facility-slideshow-20260901/facility-10-2u3a0181.jpg?v=20260901-facility-slideshow-v1"
+                    data-src="lp-medical-fitness/img/mf-facility-slideshow-20260901/facility-10-2u3a0181.jpg?v=20260901-facility-slideshow-v1"
                     alt="施設内のフィットネス空間"
                     width="1575"
                     height="1050"
@@ -963,7 +981,11 @@
         </div>
       </section>
       <!-- cta -->
-      <section id="trial" class="cta">
+      <section
+        id="trial"
+        class="cta"
+        data-lazy-bg="lp-medical-fitness/img/mf-regenerated-20260831/b08-cta-background-v2.webp?v=20260831-regenerated-v1"
+      >
         <div class="cta__inner l-inner js-title">
           <h2 class="cta__heading">
             <span class="cta__heading-sub">次は</span>
@@ -1007,7 +1029,10 @@
     <!-- footer -->
     <footer class="footer">
       <div class="footer__inner l-inner">
-        <div class="footer__message">
+        <div
+          class="footer__message"
+          data-lazy-bg="lp-medical-fitness/img/mf-selected-20260831/b09-footer-background.webp?v=20260831-selected-v1"
+        >
           <p class="footer__message-text1">ご案内</p>
           <p class="footer__message-text2">お客様の個人情報の取り扱いについては、<br>
             体験相談ご予約時またはご来店時に<br>
@@ -1053,6 +1078,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
     <!-- 自作のJS -->
-    <script src="script.js?v=20260902-facility-editor-v4"></script>
+    <script src="script.js?v=20260902-facility-editor-v5"></script>
   </body>
 </html>

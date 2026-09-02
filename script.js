@@ -8,13 +8,35 @@ jQuery("#js-drawer-icon").on("click", function (e) {
     jQuery("#js-drawer-icon").removeClass("is-checked"),
       jQuery("#js-drawer-open").removeClass("is-checked");
   }),
-  window.addEventListener("scroll", () => {
-    document.querySelectorAll(".js-title").forEach((e) => {
-      var r = e.getBoundingClientRect(),
-        o = window.innerHeight;
-      r.top < o - 100 && e.classList.add("is-visible");
-    });
-  }),
+  (function () {
+    var titles = document.querySelectorAll(".js-title");
+    if (!titles.length) return;
+    if ("IntersectionObserver" in window) {
+      var titleObserver = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add("is-visible");
+            titleObserver.unobserve(entry.target);
+          });
+        },
+        { rootMargin: "0px 0px -100px 0px" }
+      );
+      titles.forEach(function (title) {
+        titleObserver.observe(title);
+      });
+      return;
+    }
+    function revealTitles() {
+      titles.forEach(function (title) {
+        if (title.getBoundingClientRect().top < window.innerHeight - 100) {
+          title.classList.add("is-visible");
+        }
+      });
+    }
+    window.addEventListener("scroll", revealTitles, { passive: true });
+    revealTitles();
+  })(),
   window.addEventListener("load", function () {
     gsap.registerPlugin(ScrollTrigger);
     for (let e = 0; e < 5; e++)
@@ -34,6 +56,47 @@ jQuery("#js-drawer-icon").on("click", function (e) {
   }),
   -1 < navigator.userAgent.toLowerCase().indexOf("firefox") &&
     document.documentElement.classList.add("is-firefox");
+
+(function () {
+  var lazyBackgrounds = Array.from(
+    document.querySelectorAll("[data-lazy-bg]")
+  );
+  if (lazyBackgrounds.length) {
+    function loadBackground(element) {
+      var background = element.getAttribute("data-lazy-bg");
+      var before = element.getAttribute("data-lazy-bg-before");
+      if (background) {
+        element.style.setProperty(
+          "--mf-bg-image",
+          'url("' + background + '")'
+        );
+      }
+      if (before) {
+        element.style.setProperty(
+          "--mf-bg-before-image",
+          'url("' + before + '")'
+        );
+      }
+    }
+    if (!("IntersectionObserver" in window)) {
+      lazyBackgrounds.forEach(loadBackground);
+    } else {
+      var backgroundObserver = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            loadBackground(entry.target);
+            backgroundObserver.unobserve(entry.target);
+          });
+        },
+        { rootMargin: "600px 0px" }
+      );
+      lazyBackgrounds.forEach(function (element) {
+        backgroundObserver.observe(element);
+      });
+    }
+  }
+})();
 
 (function () {
   document.querySelectorAll("[data-facility-slideshow]").forEach(function (gallery) {
@@ -116,11 +179,29 @@ jQuery("#js-drawer-icon").on("click", function (e) {
       );
     }
 
+    function hydrateImage(container) {
+      var sources = container
+        ? Array.from(container.querySelectorAll("source[data-srcset]"))
+        : [];
+      var image = container ? container.querySelector("img") : null;
+      sources.forEach(function (source) {
+        source.setAttribute("srcset", source.getAttribute("data-srcset"));
+        source.removeAttribute("data-srcset");
+      });
+      if (image && !image.getAttribute("src") && image.getAttribute("data-src")) {
+        image.setAttribute("src", image.getAttribute("data-src"));
+        image.removeAttribute("data-src");
+      }
+      return image;
+    }
+
     function prioritizeCurrentImage() {
-      var image = slides[current] ? slides[current].querySelector("img") : null;
+      var slide = slides[current];
+      var image = slide ? slide.querySelector("img") : null;
       if (!image) return;
       image.loading = "eager";
       image.setAttribute("fetchpriority", "high");
+      hydrateImage(slide);
     }
 
     function watchGalleryVisibility() {
@@ -261,6 +342,7 @@ jQuery("#js-drawer-icon").on("click", function (e) {
         previewButton.title = "クリックで表示";
         previewImage.loading = "lazy";
         previewImage.removeAttribute("fetchpriority");
+        hydrateImage(previewMedia);
         previewButton.appendChild(previewMedia);
         label.className = "facility-slideshow__editor-label";
         label.textContent = "画像" + id;
@@ -284,6 +366,7 @@ jQuery("#js-drawer-icon").on("click", function (e) {
         down.title = "ひとつ下へ";
 
         previewButton.addEventListener("click", function () {
+          hydrateImage(slides[index]);
           show(index);
           start();
         });

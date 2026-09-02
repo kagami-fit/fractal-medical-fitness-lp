@@ -427,7 +427,7 @@ textarea {
   }
 }
 .about {
-  background: url(lp-medical-fitness/img/mf-health-consultation.webp?v=20260705-facility-bg-v1) no-repeat top left/cover;
+  background: var(--mf-bg-image, none) no-repeat top left/cover;
   overflow: hidden;
   padding-block: 60px 55px;
   position: relative;
@@ -447,7 +447,7 @@ textarea {
   }
 }
 .about__inner::before {
-  background: url(https://fractal-workout.com/wp-content/uploads/2025/09/about_logo.webp) no-repeat top left/57vw auto;
+  background: var(--mf-bg-before-image, none) no-repeat top left/57vw auto;
   content: "";
   height: 500px;
   left: 0;
@@ -457,8 +457,7 @@ textarea {
 }
 @media screen and (min-width: 768px) {
   .about__inner::before {
-    background: url(https://fractal-workout.com/wp-content/uploads/2025/09/about_logo.webp) no-repeat top
-      left/min(36vw, 600px) auto;
+    background: var(--mf-bg-before-image, none) no-repeat top left/min(36vw, 600px) auto;
     left: 120px;
     top: -35px;
     width: 600px;
@@ -1014,12 +1013,12 @@ body.admin-bar .header {
   }
 }
 .concept {
-  background: url(lp-medical-fitness/img/mf-facility-window-powerplate.webp) no-repeat top -100px center/cover;
+  background: var(--mf-bg-image, none) no-repeat top -100px center/cover;
   padding-block: 70px 200px;
 }
 @media screen and (min-width: 768px) {
   .concept {
-    background: url(lp-medical-fitness/img/mf-facility-window-powerplate.webp) no-repeat center center/cover;
+    background: var(--mf-bg-image, none) no-repeat center center/cover;
     padding-block: 5vw 200px;
   }
   .concept__wrap {
@@ -1151,12 +1150,12 @@ body.admin-bar .header {
   }
 }
 .cta {
-  background: url(lp-medical-fitness/img/mf-facility-window-powerplate.webp) no-repeat center center/cover;
+  background: var(--mf-bg-image, none) no-repeat center center/cover;
   padding-block: 53px 80px;
 }
 @media screen and (min-width: 768px) {
   .cta {
-    background: url(lp-medical-fitness/img/mf-facility-window-powerplate.webp) no-repeat center center/cover;
+    background: var(--mf-bg-image, none) no-repeat center center/cover;
     padding-block: min(10vw, 155px) min(11vw, 155px);
   }
 }
@@ -1311,7 +1310,7 @@ body.admin-bar .header {
   }
 }
 .feature__heading {
-  background: url(lp-medical-fitness/img/mf-power-plate-guidance.webp?v=20260705-facility-bg-v1) no-repeat center center/cover;
+  background: var(--mf-bg-image, none) no-repeat center center/cover;
   color: #fff;
   font-family: "Shippori Mincho", serif;
   letter-spacing: 0.02em;
@@ -1321,7 +1320,7 @@ body.admin-bar .header {
 }
 @media screen and (min-width: 768px) {
   .feature__heading {
-    background: url(lp-medical-fitness/img/mf-power-plate-guidance.webp?v=20260705-facility-bg-v1) no-repeat center center/cover;
+    background: var(--mf-bg-image, none) no-repeat center center/cover;
     display: flex;
     flex-direction: column;
     padding-block: 4.3vw 5vw;
@@ -1637,7 +1636,7 @@ body.admin-bar .header {
   }
 }
 .footer__message {
-  background: url(lp-medical-fitness/img/mf-health-consultation.webp?v=20260705-facility-bg-v1) no-repeat top left/cover;
+  background: var(--mf-bg-image, none) no-repeat top left/cover;
   padding-block: 39px 40px;
   position: relative;
   text-align: center;
@@ -2240,7 +2239,7 @@ body.admin-bar .header {
   }
 }
 .problem {
-  background: url(lp-medical-fitness/img/mf-health-consultation.webp?v=20260705-facility-bg-v1) no-repeat top left/cover;
+  background: var(--mf-bg-image, none) no-repeat top left/cover;
   color: #fff;
   margin-top: -280px;
   padding-block: 82px 40px;
@@ -2253,7 +2252,7 @@ body.admin-bar .header {
 }
 @media screen and (min-width: 1600px) {
   .problem {
-    background: url(lp-medical-fitness/img/mf-health-consultation.webp?v=20260705-facility-bg-v1) no-repeat top -30px left/cover;
+    background: var(--mf-bg-image, none) no-repeat top -30px left/cover;
   }
 }
 .problem__heading {
@@ -2423,7 +2422,7 @@ body.admin-bar .header {
   }
 }
 .program {
-  background: url(lp-medical-fitness/img/mf-program-bg-clean.webp?v=20260705-program-bg-v1) no-repeat center center/cover;
+  background: var(--mf-bg-image, none) no-repeat center center/cover;
   padding-block: 48px 60px;
   position: relative;
 }
@@ -2438,8 +2437,7 @@ body.admin-bar .header {
   }
 }
 .program::before {
-  background: url(lp-medical-fitness/img/mf-program-bg-clean.webp?v=20260705-program-bg-v1) no-repeat top center/100%
-    auto;
+  background: var(--mf-bg-image, none) no-repeat top center/100% auto;
   content: "";
   height: 700px;
   left: 0;
@@ -2449,8 +2447,7 @@ body.admin-bar .header {
 }
 @media screen and (min-width: 768px) {
   .program::before {
-    background: url(lp-medical-fitness/img/mf-program-bg-clean.webp?v=20260705-program-bg-v1) no-repeat top center/100%
-      auto;
+    background: var(--mf-bg-image, none) no-repeat top center/100% auto;
     height: 800px;
     width: 100%;
   }
@@ -2680,7 +2677,7 @@ body.admin-bar .header {
   }
 }
 .vision__wrap {
-  background: url(lp-medical-fitness/img/mf-power-plate-guidance.webp?v=20260705-facility-bg-v1) no-repeat center center/cover;
+  background: var(--mf-bg-image, none) no-repeat center center/cover;
   margin-top: 26px;
   padding-block: 30px 53px;
   padding-inline: 20px;
