@@ -35,7 +35,7 @@ jQuery("#js-drawer-icon").on("click", function (e) {
   -1 < navigator.userAgent.toLowerCase().indexOf("firefox") &&
     document.documentElement.classList.add("is-firefox");
 
-window.addEventListener("load", function () {
+(function () {
   document.querySelectorAll("[data-facility-slideshow]").forEach(function (gallery) {
     var track = gallery.querySelector(".facility-slideshow__track");
     var slides = Array.from(
@@ -368,6 +368,7 @@ window.addEventListener("load", function () {
       var orderedSlides = [];
       var orderedDots = [];
       var dotContainer = dots[0] ? dots[0].parentNode : null;
+      var firstImage = null;
 
       slides.forEach(function (slide) {
         slideById[slide.getAttribute("data-slide-id")] = slide;
@@ -389,6 +390,11 @@ window.addEventListener("load", function () {
       }
       slides = orderedSlides;
       dots = orderedDots;
+      firstImage = slides[0] ? slides[0].querySelector("img") : null;
+      if (firstImage) {
+        firstImage.loading = "eager";
+        firstImage.setAttribute("fetchpriority", "high");
+      }
       show(0);
       renderEditor();
       if (shouldUpdateUrl) updateOrderUrl();
@@ -476,4 +482,4 @@ window.addEventListener("load", function () {
     show(0);
     start();
   });
-});
+})();
