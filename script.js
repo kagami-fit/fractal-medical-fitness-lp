@@ -53,6 +53,7 @@ window.addEventListener("load", function () {
     var editorGrid = null;
     var editorOutput = null;
     var draggedItem = null;
+    var pointerDrag = null;
     var editorMode =
       new URLSearchParams(window.location.search).get("facility-editor") === "1";
     var reducedMotion = window.matchMedia(
@@ -127,6 +128,70 @@ window.addEventListener("load", function () {
       });
     }
 
+    function formatEditorPosition(index) {
+      return (index + 1 < 10 ? "0" : "") + (index + 1);
+    }
+
+    function updateEditorPositions() {
+      if (!editorGrid) return;
+      Array.from(editorGrid.children).forEach(function (item, index) {
+        var position = item.querySelector(
+          ".facility-slideshow__editor-position"
+        );
+        if (position) position.textContent = formatEditorPosition(index);
+      });
+    }
+
+    function clearDropTarget() {
+      if (!editorGrid) return;
+      editorGrid
+        .querySelectorAll(".facility-slideshow__editor-item.is-drop-target")
+        .forEach(function (item) {
+          item.classList.remove("is-drop-target");
+        });
+    }
+
+    function getDropAfter(event, item) {
+      var rect = item.getBoundingClientRect();
+      var deltaX = event.clientX - (rect.left + rect.width / 2);
+      var deltaY = event.clientY - (rect.top + rect.height / 2);
+      return Math.abs(deltaX) > Math.abs(deltaY) ? deltaX > 0 : deltaY > 0;
+    }
+
+    function placeDraggedItem(item, event) {
+      var after;
+      if (!editorGrid || !draggedItem || item === draggedItem) return;
+      after = getDropAfter(event, item);
+      if (after) {
+        editorGrid.insertBefore(draggedItem, item.nextSibling);
+      } else {
+        editorGrid.insertBefore(draggedItem, item);
+      }
+      clearDropTarget();
+      item.classList.add("is-drop-target");
+      updateEditorPositions();
+    }
+
+    function finishPointerDrag(event) {
+      var item;
+      var handle;
+      if (!pointerDrag || event.pointerId !== pointerDrag.pointerId) return;
+      item = pointerDrag.item;
+      handle = pointerDrag.handle;
+      if (
+        handle.hasPointerCapture &&
+        handle.hasPointerCapture(event.pointerId)
+      ) {
+        handle.releasePointerCapture(event.pointerId);
+      }
+      item.classList.remove("is-pointer-dragging");
+      clearDropTarget();
+      pointerDrag = null;
+      draggedItem = null;
+      if (editorGrid && editorGrid.contains(item)) syncEditorOrder();
+      start();
+    }
+
     function renderEditor() {
       if (!editorGrid) return;
       editorGrid.innerHTML = "";
@@ -134,9 +199,13 @@ window.addEventListener("load", function () {
         var id = slide.getAttribute("data-slide-id");
         var source = slide.querySelector("img");
         var item = document.createElement("div");
+        var header = document.createElement("div");
+        var position = document.createElement("span");
         var previewButton = document.createElement("button");
         var previewImage = source.cloneNode(true);
         var label = document.createElement("span");
+        var description = document.createElement("span");
+        var handle = document.createElement("button");
         var actions = document.createElement("div");
         var up = document.createElement("button");
         var down = document.createElement("button");
@@ -144,22 +213,40 @@ window.addEventListener("load", function () {
         item.className = "facility-slideshow__editor-item";
         item.draggable = true;
         item.setAttribute("data-slide-id", id);
+        item.setAttribute(
+          "aria-label",
+          "画像" + id + "、現在" + formatEditorPosition(index) + "番目"
+        );
+        header.className = "facility-slideshow__editor-header";
+        position.className = "facility-slideshow__editor-position";
+        position.textContent = formatEditorPosition(index);
+        position.setAttribute("aria-hidden", "true");
         previewButton.className = "facility-slideshow__editor-preview";
         previewButton.type = "button";
         previewButton.setAttribute("aria-label", "画像" + id + "を表示");
+        previewButton.title = "クリックで表示";
         previewImage.loading = "eager";
         previewButton.appendChild(previewImage);
         label.className = "facility-slideshow__editor-label";
         label.textContent = "画像" + id;
+        description.className = "facility-slideshow__editor-description";
+        description.textContent = source.getAttribute("alt") || "施設画像";
+        handle.className = "facility-slideshow__editor-handle";
+        handle.type = "button";
+        handle.textContent = "↕";
+        handle.setAttribute("aria-label", "画像" + id + "をドラッグして並び替え");
+        handle.title = "ドラッグして並び替え";
         actions.className = "facility-slideshow__editor-item-actions";
         up.className = "facility-slideshow__editor-move";
         up.type = "button";
-        up.textContent = "上へ";
+        up.textContent = "↑";
         up.setAttribute("aria-label", "画像" + id + "を上へ移動");
+        up.title = "ひとつ上へ";
         down.className = "facility-slideshow__editor-move";
         down.type = "button";
-        down.textContent = "下へ";
+        down.textContent = "↓";
         down.setAttribute("aria-label", "画像" + id + "を下へ移動");
+        down.title = "ひとつ下へ";
 
         previewButton.addEventListener("click", function () {
           show(index);
@@ -171,38 +258,80 @@ window.addEventListener("load", function () {
         down.addEventListener("click", function () {
           moveEditorItem(id, 1);
         });
-        item.addEventListener("dragstart", function (event) {
-          draggedItem = item;
-          item.classList.add("is-dragging");
-          if (event.dataTransfer) event.dataTransfer.effectAllowed = "move";
-        });
-        item.addEventListener("dragover", function (event) {
-          var rect;
-          var after;
-          if (!draggedItem || draggedItem === item) return;
+        handle.addEventListener("pointerdown", function (event) {
+          if (event.pointerType === "mouse" || !event.isPrimary) return;
           event.preventDefault();
-          rect = item.getBoundingClientRect();
-          after = event.clientY > rect.top + rect.height / 2;
-          if (after) {
-            editorGrid.insertBefore(draggedItem, item.nextSibling);
-          } else {
-            editorGrid.insertBefore(draggedItem, item);
+          stop();
+          draggedItem = item;
+          pointerDrag = {
+            handle: handle,
+            item: item,
+            pointerId: event.pointerId,
+          };
+          item.classList.add("is-pointer-dragging");
+          if (handle.setPointerCapture) handle.setPointerCapture(event.pointerId);
+        });
+        handle.addEventListener("pointermove", function (event) {
+          var element;
+          var target;
+          if (!pointerDrag || event.pointerId !== pointerDrag.pointerId) return;
+          event.preventDefault();
+          element = document.elementFromPoint(event.clientX, event.clientY);
+          target =
+            element && element.closest
+              ? element.closest(".facility-slideshow__editor-item")
+              : null;
+          if (
+            target &&
+            editorGrid.contains(target) &&
+            target !== draggedItem
+          ) {
+            placeDraggedItem(target, event);
           }
         });
-        item.addEventListener("drop", function (event) {
+        handle.addEventListener("pointerup", finishPointerDrag);
+        handle.addEventListener("pointercancel", finishPointerDrag);
+        item.addEventListener("dragstart", function (event) {
+          if (pointerDrag) return;
+          draggedItem = item;
+          stop();
+          item.classList.add("is-dragging");
+          if (event.dataTransfer) {
+            event.dataTransfer.effectAllowed = "move";
+            event.dataTransfer.setData("text/plain", id);
+          }
+        });
+        item.addEventListener("dragover", function (event) {
+          if (!draggedItem || draggedItem === item) return;
           event.preventDefault();
-          syncEditorOrder();
+          if (event.dataTransfer) event.dataTransfer.dropEffect = "move";
+          placeDraggedItem(item, event);
+        });
+        item.addEventListener("drop", function (event) {
+          var shouldSync;
+          event.preventDefault();
+          clearDropTarget();
+          shouldSync = Boolean(draggedItem);
+          draggedItem = null;
+          if (shouldSync) syncEditorOrder();
         });
         item.addEventListener("dragend", function () {
+          var shouldSync = draggedItem === item;
           item.classList.remove("is-dragging");
-          if (editorGrid.contains(item)) syncEditorOrder();
+          clearDropTarget();
           draggedItem = null;
+          if (shouldSync && editorGrid.contains(item)) syncEditorOrder();
+          start();
         });
 
+        header.appendChild(position);
+        header.appendChild(label);
+        header.appendChild(handle);
         actions.appendChild(up);
         actions.appendChild(down);
+        item.appendChild(header);
         item.appendChild(previewButton);
-        item.appendChild(label);
+        item.appendChild(description);
         item.appendChild(actions);
         editorGrid.appendChild(item);
       });
@@ -289,7 +418,7 @@ window.addEventListener("load", function () {
       editor.innerHTML =
         '<div class="facility-slideshow__editor-actions">' +
         '<button type="button" data-facility-editor-reset>初期順に戻す</button>' +
-        '<button type="button" data-facility-editor-copy>並び順をコピー</button>' +
+        '<button type="button" data-facility-editor-copy>並び順リンクをコピー</button>' +
         '<output aria-live="polite"></output>' +
         '</div><div class="facility-slideshow__editor-grid"></div>';
       gallery.appendChild(editor);
@@ -301,13 +430,13 @@ window.addEventListener("load", function () {
         reorderSlides(defaultOrder.slice(), true);
       });
       copy.addEventListener("click", function () {
-        var value = getOrder().join(" -> ");
+        var value = window.location.href;
         if (navigator.clipboard && navigator.clipboard.writeText) {
           navigator.clipboard.writeText(value).then(function () {
-            editorOutput.textContent = "コピーしました: " + value;
+            editorOutput.textContent = "並び順リンクをコピーしました";
           });
         } else {
-          editorOutput.textContent = "並び順: " + value;
+          editorOutput.textContent = "リンク: " + value;
         }
       });
       renderEditor();
@@ -334,7 +463,7 @@ window.addEventListener("load", function () {
     }
     dots.forEach(function (dot, i) {
       dot.addEventListener("click", function () {
-        show(i);
+        show(dots.indexOf(dot));
         start();
       });
     });
