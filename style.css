@@ -556,7 +556,7 @@ textarea {
 
 .facility-slideshow__viewport {
   aspect-ratio: 16 / 9;
-  background: #102c34;
+  background: #fff;
   overflow: hidden;
   position: relative;
 }
@@ -848,7 +848,7 @@ textarea {
 
 .facility-slideshow__editor-preview img {
   aspect-ratio: 3 / 2;
-  background: #102c34;
+  background: #fff;
   display: block;
   height: auto;
   object-fit: contain;
